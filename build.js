@@ -1,33 +1,41 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
-const md = fs.readFileSync(path.join(__dirname, 'Pedoman_TA_IF.md'), 'utf8');
-const changelogMd = fs.readFileSync(path.join(__dirname, 'changelog.md'), 'utf8');
+const md = fs.readFileSync(path.join(__dirname, "Pedoman_TA_IF.md"), "utf8");
+const changelogMd = fs.readFileSync(
+	path.join(__dirname, "changelog.md"),
+	"utf8",
+);
 
 // --- Extract TOC from markdown ---
 function extractToc(md) {
-  const lines = md.split('\n');
-  const toc = [];
-  for (const line of lines) {
-    const m = line.match(/^(#{1,4})\s+(.+)/);
-    if (m) {
-      const level = m[1].length;
-      const text = m[2].trim();
-      const id = text.toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-');
-      toc.push({ level, text, id });
-    }
-  }
-  return toc;
+	const lines = md.split("\n");
+	const toc = [];
+	for (const line of lines) {
+		const m = line.match(/^(#{1,4})\s+(.+)/);
+		if (m) {
+			const level = m[1].length;
+			const text = m[2].trim();
+			const id = text
+				.toLowerCase()
+				.replace(/[^\w\s-]/g, "")
+				.replace(/\s+/g, "-");
+			toc.push({ level, text, id });
+		}
+	}
+	return toc;
 }
 
 const toc = extractToc(md);
-const tocHtml = toc.map(item => {
-  return `<li class="toc-level-${item.level}"><a href="#${item.id}" data-level="${item.level}">${item.text}</a></li>`;
-}).join('\n');
+const tocHtml = toc
+	.map((item) => {
+		return `<li class="toc-level-${item.level}"><a href="#${item.id}" data-level="${item.level}">${item.text}</a></li>`;
+	})
+	.join("\n");
 
 // --- HTML template ---
-function template(title, bodyContent, extraHead = '') {
-  return `<!DOCTYPE html>
+function template(title, bodyContent, extraHead = "") {
+	return `<!DOCTYPE html>
 <html lang="id" data-theme="light">
 <head>
   <meta charset="UTF-8">
@@ -45,10 +53,10 @@ function template(title, bodyContent, extraHead = '') {
       <span>Pedoman TA IF</span>
     </a>
     <div class="topbar-actions">
-      <a href="index.html" class="topbar-link ${title === 'Beranda' ? 'active' : ''}">Beranda</a>
-      <a href="pedoman.html" class="topbar-link ${title === 'Pedoman' ? 'active' : ''}">Pedoman</a>
-      <a href="sosialisasi.html" class="topbar-link ${title === 'Sosialisasi' ? 'active' : ''}">Sosialisasi</a>
-      <a href="changelog.html" class="topbar-link ${title === 'Changelog' ? 'active' : ''}">Changelog</a>
+      <a href="index.html" class="topbar-link ${title === "Beranda" ? "active" : ""}">Beranda</a>
+      <a href="pedoman.html" class="topbar-link ${title === "Pedoman" ? "active" : ""}">Pedoman</a>
+      <a href="sosialisasi.html" class="topbar-link ${title === "Sosialisasi" ? "active" : ""}">Sosialisasi</a>
+      <a href="changelog.html" class="topbar-link ${title === "Changelog" ? "active" : ""}">Changelog</a>
       <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
         <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
         <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
@@ -62,12 +70,27 @@ function template(title, bodyContent, extraHead = '') {
 }
 
 // === INDEX PAGE ===
-const indexHtml = template('Beranda', `
+const indexHtml = template(
+	"Beranda",
+	`
 <main class="home">
   <div class="hero">
     <div class="hero-badge">Program Studi Teknik Informatika · FTI · ITERA</div>
     <h1>Pedoman Tugas Akhir<br><span class="gradient-text">Tahun Akademik 2025/2026</span></h1>
     <p class="hero-sub">Panduan lengkap penyelenggaraan Tugas Akhir — enam bentuk, satu standar mutu.</p>
+  </div>
+  <div class="draft-banner">
+    <div class="draft-icon">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01"/><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
+    </div>
+    <div class="draft-text">
+      <strong>Status: Masih Drafting</strong>
+      <span>Pedoman ini masih dalam tahap penyusunan. Berikan masukan dan saran perbaikan kepada Tim TA melalui formulir berikut.</span>
+    </div>
+    <a href="https://tally.so/r/b5g176" target="_blank" rel="noopener" class="draft-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+      Kirim Masukan
+    </a>
   </div>
   <div class="cards">
     <a href="pedoman.html" class="card card-pedoman">
@@ -99,10 +122,13 @@ const indexHtml = template('Beranda', `
     <p>Institut Teknologi Sumatera · Fakultas Teknologi Industri · Program Studi Teknik Informatika</p>
   </div>
 </main>
-`);
+`,
+);
 
 // === PEDOMAN PAGE ===
-const pedomanHtml = template('Pedoman', `
+const pedomanHtml = template(
+	"Pedoman",
+	`
 <div class="layout-pedoman">
   <aside class="sidebar" id="sidebar">
     <div class="sidebar-header">
@@ -136,10 +162,13 @@ const pedomanHtml = template('Pedoman', `
     h.id = id;
   });
 </script>
-`);
+`,
+);
 
 // === SOSIALISASI PAGE ===
-const sosialisasiHtml = template('Sosialisasi', `
+const sosialisasiHtml = template(
+	"Sosialisasi",
+	`
 <div class="slides-container" id="slides-container">
   <nav class="slides-nav" id="slides-nav">
     <button class="slide-nav-btn" id="slide-prev" aria-label="Sebelumnya">
@@ -684,10 +713,13 @@ const sosialisasiHtml = template('Sosialisasi', `
 
   </div>
 </div>
-`);
+`,
+);
 
 // === CHANGELOG PAGE ===
-const changelogHtml = template('Changelog', `
+const changelogHtml = template(
+	"Changelog",
+	`
 <main class="home">
   <div class="hero" style="padding-bottom:20px;">
     <div class="hero-badge">Version History</div>
@@ -743,7 +775,8 @@ const changelogHtml = template('Changelog', `
     s.style.color = 'var(--text)';
   });
 </script>
-`);
+`,
+);
 
 // === STYLES ===
 const styles = `/* ===== RESET & VARIABLES ===== */
@@ -926,6 +959,82 @@ body {
   color: var(--text-2);
   max-width: 500px;
   margin: 0 auto;
+}
+
+/* Draft Banner */
+.draft-banner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 720px;
+  width: 100%;
+  padding: 16px 24px;
+  background: linear-gradient(135deg, var(--yellow-bg), color-mix(in srgb, var(--yellow-bg) 60%, var(--bg)));
+  border: 1px solid color-mix(in srgb, var(--yellow) 40%, transparent);
+  border-radius: var(--radius);
+  margin: 0 20px 24px;
+}
+
+.draft-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--yellow-bg);
+  border-radius: 10px;
+  color: var(--yellow);
+}
+
+.draft-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.draft-text strong {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--yellow);
+}
+
+.draft-text span {
+  font-size: 13px;
+  color: var(--text-2);
+  line-height: 1.5;
+}
+
+.draft-btn {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: var(--yellow);
+  color: #fff;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.draft-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 640px) {
+  .draft-banner {
+    flex-direction: column;
+    text-align: center;
+    margin: 0 16px 20px;
+    padding: 16px;
+  }
+  .draft-btn { width: 100%; justify-content: center; }
 }
 
 .cards {
@@ -1961,17 +2070,17 @@ const script = `// Theme
 `;
 
 // Write files
-fs.writeFileSync(path.join(__dirname, 'index.html'), indexHtml);
-fs.writeFileSync(path.join(__dirname, 'pedoman.html'), pedomanHtml);
-fs.writeFileSync(path.join(__dirname, 'sosialisasi.html'), sosialisasiHtml);
-fs.writeFileSync(path.join(__dirname, 'changelog.html'), changelogHtml);
-fs.writeFileSync(path.join(__dirname, 'styles.css'), styles);
-fs.writeFileSync(path.join(__dirname, 'script.js'), script);
+fs.writeFileSync(path.join(__dirname, "index.html"), indexHtml);
+fs.writeFileSync(path.join(__dirname, "pedoman.html"), pedomanHtml);
+fs.writeFileSync(path.join(__dirname, "sosialisasi.html"), sosialisasiHtml);
+fs.writeFileSync(path.join(__dirname, "changelog.html"), changelogHtml);
+fs.writeFileSync(path.join(__dirname, "styles.css"), styles);
+fs.writeFileSync(path.join(__dirname, "script.js"), script);
 
-console.log('Build complete! Files generated:');
-console.log('  - index.html');
-console.log('  - pedoman.html');
-console.log('  - sosialisasi.html');
-console.log('  - changelog.html');
-console.log('  - styles.css');
-console.log('  - script.js');
+console.log("Build complete! Files generated:");
+console.log("  - index.html");
+console.log("  - pedoman.html");
+console.log("  - sosialisasi.html");
+console.log("  - changelog.html");
+console.log("  - styles.css");
+console.log("  - script.js");
