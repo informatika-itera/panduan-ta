@@ -158,7 +158,7 @@ const pedomanHtml = template(
   mdEl.innerHTML = marked.parse(rawMd);
   // Add IDs to headings for ToC links
   mdEl.querySelectorAll('h1, h2, h3, h4').forEach(h => {
-    const id = h.textContent.toLowerCase().replace(/[^ws-]/g, '').replace(/\\s+/g, '-');
+    const id = h.textContent.toLowerCase().replace(/[^\\w\\s-]/g, '').replace(/\\s+/g, '-');
     h.id = id;
   });
 </script>
