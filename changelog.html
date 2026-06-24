@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Changelog — Pedoman TA IF ITERA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  
+</head>
+<body>
+  <nav class="topbar">
+    <a href="index.html" class="topbar-brand">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+      <span>Pedoman TA IF</span>
+    </a>
+    <div class="topbar-actions">
+      <a href="index.html" class="topbar-link ">Beranda</a>
+      <a href="pedoman.html" class="topbar-link ">Pedoman</a>
+      <a href="sosialisasi.html" class="topbar-link ">Sosialisasi</a>
+      <a href="changelog.html" class="topbar-link active">Changelog</a>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </nav>
+  
+<main class="home">
+  <div class="hero" style="padding-bottom:20px;">
+    <div class="hero-badge">Version History</div>
+    <h1 style="font-size:36px;">Changelog</h1>
+    <p class="hero-sub">Riwayat perubahan penting pada Pedoman TA IF ITERA.</p>
+  </div>
+  <div class="changelog-container" id="changelog-content"></div>
+  <div class="home-footer">
+    <p>Institut Teknologi Sumatera · Fakultas Teknologi Industri · Program Studi Teknik Informatika</p>
+  </div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+  const rawChangelog = "# Changelog\n\nSemua perubahan penting pada Pedoman TA IF ITERA.\n\n## [1.0.0] - 2025-06-24\n\n### Added\n\n- Pedoman TA lengkap (8 Bab + 8 Lampiran) dalam format markdown\n- Website pedoman TA dengan sidebar navigasi dan dark/light mode\n- Halaman sosialisasi (slide presentation) berbasis web\n- Changelog untuk tracking perubahan\n\n### Changed\n\n- Sinkronisasi 34 poin dengan PDF Sosialisasi:\n  - Batas waktu semua bentuk TA: 2 → **3 semester**\n  - Capstone: jumlah anggota tetap **3 orang**\n  - Artikel: standar publikasi **SINTA 1–4** (bukan SINTA 5)\n  - HKI/Paten: jumlah mahasiswa **2–3** (bukan 3–4), wajib demo\n  - TTG: TKT minimum **Level 6** (bukan Level 4)\n  - Kehadiran sempro lain: 5 → **2 kali**\n  - Durasi presentasi sempro: **10 menit**, sidang: **10+5 menit**\n  - Tanya jawab sidang: **50 menit**\n  - Buku: syarat **PRISMA**\n  - Checklist sidang: tambah **Surat Izin Penelitian**\n\n### Fixed\n\n- Formatting markdown dari konversi Word (anchor tags, spacing, tabel)\n- Struktur heading hierarkis (#/##/###/####) untuk semua bab & lampiran\n\n## [0.1.0] - 2025-06-23\n\n### Added\n\n- Inisialisasi repository\n- Source markdown dari konversi Word (`raw/Pedoman_TA_IF_Lengkap.docx.md`)\n- PDF Sosialisasi (`raw/Sosialisasi_Pedoman_TA_IF (1).pptx.pdf`)\n";
+  const clEl = document.getElementById('changelog-content');
+  marked.setOptions({ breaks: true, gfm: true });
+  // Parse markdown and split by h2 (each version)
+  const tmpDiv = document.createElement('div');
+  tmpDiv.innerHTML = marked.parse(rawChangelog);
+  const allH2 = tmpDiv.querySelectorAll('h2');
+  const maxEntries = 8;
+  let count = 0;
+  allH2.forEach(h2 => {
+    if (count >= maxEntries) {
+      // Hide remaining entries
+      let node = h2;
+      while (node) {
+        const next = node.nextElementSibling;
+        node.remove();
+        node = next;
+        if (!node || node.tagName === 'H2') break;
+      }
+      h2.remove();
+    } else {
+      count++;
+    }
+  });
+  clEl.innerHTML = tmpDiv.innerHTML;
+  // Style the changelog
+  clEl.querySelectorAll('h2').forEach(h => {
+    h.style.cssText = 'font-size:22px;font-weight:700;margin:32px 0 12px;padding:12px 20px;background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius-sm);border-left:4px solid var(--accent);';
+  });
+  clEl.querySelectorAll('h3').forEach(h => {
+    h.style.cssText = 'font-size:16px;font-weight:600;margin:20px 0 8px;color:var(--accent);';
+  });
+  clEl.querySelectorAll('ul').forEach(ul => {
+    ul.style.cssText = 'padding-left:20px;margin:8px 0 16px;';
+  });
+  clEl.querySelectorAll('li').forEach(li => {
+    li.style.cssText = 'font-size:14px;line-height:1.7;margin:4px 0;color:var(--text-2);';
+  });
+  clEl.querySelectorAll('strong').forEach(s => {
+    s.style.color = 'var(--text)';
+  });
+</script>
+
+  <script src="script.js"></script>
+</body>
+</html>

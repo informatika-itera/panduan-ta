@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sosialisasi — Pedoman TA IF ITERA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  
+</head>
+<body>
+  <nav class="topbar">
+    <a href="index.html" class="topbar-brand">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+      <span>Pedoman TA IF</span>
+    </a>
+    <div class="topbar-actions">
+      <a href="index.html" class="topbar-link ">Beranda</a>
+      <a href="pedoman.html" class="topbar-link ">Pedoman</a>
+      <a href="sosialisasi.html" class="topbar-link active">Sosialisasi</a>
+      <a href="changelog.html" class="topbar-link ">Changelog</a>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </nav>
+  
+<div class="slides-container" id="slides-container">
+  <nav class="slides-nav" id="slides-nav">
+    <button class="slide-nav-btn" id="slide-prev" aria-label="Sebelumnya">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <span class="slide-counter" id="slide-counter">1 / 14</span>
+    <button class="slide-nav-btn" id="slide-next" aria-label="Selanjutnya">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+    <div class="slide-dots" id="slide-dots"></div>
+  </nav>
+
+  <div class="slides-wrapper" id="slides-wrapper">
+
+    <!-- SLIDE 1: Cover -->
+    <section class="slide slide-cover" data-slide="1">
+      <div class="slide-content cover-content">
+        <div class="cover-badge">Fakultas Teknologi Industri · Institut Teknologi Sumatera</div>
+        <h1>Pedoman<br>Tugas Akhir</h1>
+        <p class="cover-sub">Program Studi Teknik Informatika</p>
+        <p class="cover-year">Tahun Akademik 2025/2026</p>
+      </div>
+    </section>
+
+    <!-- SLIDE 2: Agenda -->
+    <section class="slide" data-slide="2">
+      <div class="slide-content">
+        <h2>Agenda Sosialisasi</h2>
+        <div class="agenda-grid">
+          <div class="agenda-item"><span class="agenda-num">01</span>Pendahuluan & CPL 10</div>
+          <div class="agenda-item"><span class="agenda-num">02</span>Enam Bentuk Tugas Akhir</div>
+          <div class="agenda-item"><span class="agenda-num">03</span>Alur & Timeline per Bentuk</div>
+          <div class="agenda-item"><span class="agenda-num">04</span>Persyaratan & Kelengkapan</div>
+          <div class="agenda-item"><span class="agenda-num">05</span>Penilaian & Rubrik</div>
+          <div class="agenda-item"><span class="agenda-num">06</span>Kebijakan Penggunaan AI</div>
+          <div class="agenda-item"><span class="agenda-num">07</span>Integritas Akademik & Sanksi</div>
+          <div class="agenda-item"><span class="agenda-num">08</span>Batas Waktu & Penanganan</div>
+          <div class="agenda-item"><span class="agenda-num">09</span>Peran & Tanggung Jawab</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 3: CPL 10 -->
+    <section class="slide" data-slide="3">
+      <div class="slide-content">
+        <h2>CPL 10 & Taksonomi Bloom</h2>
+        <div class="highlight-box">
+          <p>"Mampu menerapkan sikap ilmiah dalam merancang, melaksanakan, dan menganalisis solusi TI serta mendokumentasikannya dalam bentuk laporan yang sistematis."</p>
+        </div>
+        <div class="bloom-levels">
+          <div class="bloom-item">
+            <span class="bloom-tag bloom-c3">C3</span>
+            <span class="bloom-label">Apply</span>
+            <p>Menerapkan · Melaksanakan</p>
+          </div>
+          <div class="bloom-item">
+            <span class="bloom-tag bloom-c4">C4</span>
+            <span class="bloom-label">Analyze</span>
+            <p>Menganalisis</p>
+          </div>
+          <div class="bloom-item">
+            <span class="bloom-tag bloom-c6">C6</span>
+            <span class="bloom-label">Create</span>
+            <p>Merancang · Mendokumentasikan</p>
+          </div>
+        </div>
+        <p class="slide-note">TA menuntut capaian dari level penerapan (C3) hingga level mencipta (C6)</p>
+      </div>
+    </section>
+
+    <!-- SLIDE 4: Enam Bentuk -->
+    <section class="slide" data-slide="4">
+      <div class="slide-content">
+        <h2>Enam Bentuk Tugas Akhir</h2>
+        <div class="forms-grid">
+          <div class="form-card">
+            <div class="form-num">1</div>
+            <h3>Laporan TA</h3>
+            <p>Penelitian konvensional · Individu</p>
+          </div>
+          <div class="form-card">
+            <div class="form-num">2</div>
+            <h3>Capstone Design</h3>
+            <p>Proyek kelompok + mitra · Tim 3</p>
+          </div>
+          <div class="form-card">
+            <div class="form-num">3</div>
+            <h3>Artikel Ilmiah</h3>
+            <p>Publikasi jurnal/konferensi · Individu</p>
+          </div>
+          <div class="form-card">
+            <div class="form-num">4</div>
+            <h3>HKI / Paten</h3>
+            <p>Purwarupa + DJKI · 2–3 orang</p>
+          </div>
+          <div class="form-card">
+            <div class="form-num">5</div>
+            <h3>Teknologi Tepat Guna</h3>
+            <p>Produk tepat guna · Tim 2–3</p>
+          </div>
+          <div class="form-card">
+            <div class="form-num">6</div>
+            <h3>Buku ber-ISBN</h3>
+            <p>Buku referensi · Maks. 2</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 5: Alur Bentuk 1 -->
+    <section class="slide" data-slide="5">
+      <div class="slide-content">
+        <h2>Alur Bentuk 1 — Laporan TA</h2>
+        <div class="flow-steps">
+          <div class="flow-step"><span class="step-num">1</span><span class="step-label">Pendaftaran TA 1</span><span class="step-detail">≥100 SKS, IPK ≥2,00</span></div>
+          <div class="flow-step"><span class="step-num">2</span><span class="step-label">Penyusunan Proposal</span><span class="step-detail">Min. 4x bimbingan</span></div>
+          <div class="flow-step"><span class="step-num">3</span><span class="step-label">Seminar Proposal</span><span class="step-detail">Terbuka, 10 menit</span></div>
+          <div class="flow-step"><span class="step-num">4</span><span class="step-label">Pendaftaran TA 2</span><span class="step-detail">≥140 SKS, Dosen Wali</span></div>
+          <div class="flow-step"><span class="step-num">5</span><span class="step-label">Pelaksanaan</span><span class="step-detail">Bab I–V, similarity ≤25%</span></div>
+          <div class="flow-step"><span class="step-num">6</span><span class="step-label">Sidang Akhir</span><span class="step-detail">Tertutup, Grade B</span></div>
+          <div class="flow-step"><span class="step-num">7</span><span class="step-label">Pasca Sidang</span><span class="step-detail">Revisi 14 hari kerja</span></div>
+        </div>
+        <div class="timeline-bar">
+          <div class="timeline-sem">Semester 7 · TA 1</div>
+          <div class="timeline-sem">Semester 8 · TA 2</div>
+        </div>
+        <div class="example-box">
+          <strong>Contoh:</strong> Ahmad memilih Bentuk 1 dengan topik "Klasifikasi Penyakit Tanaman Kopi menggunakan CNN". Smt 7: proposal + sempro. Smt 8: eksperimen + Bab IV-V + sidang.
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 6: Bentuk 2 Capstone -->
+    <section class="slide" data-slide="6">
+      <div class="slide-content">
+        <h2>Bentuk 2 — Capstone Design</h2>
+        <div class="two-col">
+          <div class="col">
+            <h3>Syarat & Ketentuan</h3>
+            <ul class="slide-list">
+              <li>Kelompok = <strong>3 orang</strong></li>
+              <li>Mitra berlegalitas formal</li>
+              <li>Batas waktu: maks. <strong>3 semester</strong></li>
+              <li>Tidak selesai → topik baru</li>
+            </ul>
+          </div>
+          <div class="col">
+            <h3>Penilaian Individu</h3>
+            <ul class="slide-list">
+              <li>Kualitas produk: <strong>50%</strong></li>
+              <li>Kontribusi individu: <strong>30%</strong></li>
+              <li>Presentasi individu: <strong>20%</strong></li>
+            </ul>
+          </div>
+        </div>
+        <div class="warning-box">
+          <strong>Anggota Tim Bermasalah:</strong> Dapat dikeluarkan dari tim → konversi ke Bentuk 1 dengan topik baru, atau bergabung tim lain. Tim tersisa lanjut jika masih ≥3 orang.
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 7: Bentuk 3 Artikel -->
+    <section class="slide" data-slide="7">
+      <div class="slide-content">
+        <h2>Bentuk 3 — Jalur Publikasi Ilmiah</h2>
+        <div class="flow-steps compact">
+          <div class="flow-step"><span class="step-num">1</span><span class="step-label">Pengajuan Naskah</span><span class="step-detail">Proposal 1-2 hal</span></div>
+          <div class="flow-step"><span class="step-num">2</span><span class="step-label">Penyusunan</span><span class="step-detail">Draf artikel</span></div>
+          <div class="flow-step"><span class="step-num">3</span><span class="step-label">Sempro</span><span class="step-detail">Sebelum submit</span></div>
+          <div class="flow-step"><span class="step-num">4</span><span class="step-label">Submisi & Revisi</span><span class="step-detail">Peer review → LoA</span></div>
+          <div class="flow-step"><span class="step-num">5</span><span class="step-label">Sidang Akhir</span><span class="step-detail">Setelah LoA</span></div>
+        </div>
+        <div class="two-col">
+          <div class="col">
+            <h3>Standar Publikasi</h3>
+            <p><strong>SINTA 1–4</strong> · Scopus / WoS · IEEE Xplore</p>
+          </div>
+          <div class="col">
+            <h3>Ketentuan Kepenulisan</h3>
+            <p>Mahasiswa: first author. Pembimbing: co-author. Wajib CRediT + dokumen kesepakatan kontribusi.</p>
+          </div>
+        </div>
+        <div class="warning-box">
+          <strong>Off-Ramp:</strong> Jika dalam 3 semester belum mendapat LoA → topik baru (ajukan kembali dari awal).
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 8: Bentuk 4 HKI -->
+    <section class="slide" data-slide="8">
+      <div class="slide-content">
+        <h2>Bentuk 4 — Prototipe / HKI / Paten</h2>
+        <table class="slide-table">
+          <thead>
+            <tr><th>Jenis Output</th><th>Maks.</th><th>Contoh untuk IF</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Hak Cipta Software</td><td>1–2</td><td>Aplikasi, library, framework orisinal</td></tr>
+            <tr><td>Paten Sederhana</td><td>2–3</td><td>Algoritma baru, metode komputasi</td></tr>
+            <tr><td>Paten</td><td>2–3</td><td>Sistem terintegrasi, inovasi signifikan</td></tr>
+          </tbody>
+        </table>
+        <div class="two-col" style="margin-top:1.5rem;">
+          <div class="col">
+            <h3>Seminar Proposal</h3>
+            <p>Draft pengajuan HKI/Paten disiapkan. TKT minimum: <strong>Level 3</strong>.</p>
+          </div>
+          <div class="col">
+            <h3>Sidang Akhir</h3>
+            <p>Bukti nomor permohonan DJKI (sertifikat tidak harus terbit). <strong>Wajib demo produk.</strong></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 9: Bentuk 5 TTG -->
+    <section class="slide" data-slide="9">
+      <div class="slide-content">
+        <h2>Bentuk 5 — Teknologi Tepat Guna (TTG)</h2>
+        <div class="two-col">
+          <div class="col">
+            <h3>Format & Ketentuan</h3>
+            <ul class="slide-list">
+              <li>Tim: min. 2, maks. 3 mahasiswa</li>
+              <li>TKT minimum: <strong>Level 6</strong></li>
+              <li>Batas waktu: maks. <strong>3 semester</strong></li>
+              <li>Mitra harus berlegalitas formal</li>
+            </ul>
+          </div>
+          <div class="col">
+            <h3>Substansi & Output</h3>
+            <ul class="slide-list">
+              <li>Produk diterapkan di mitra</li>
+              <li>Prototipe + dokumentasi</li>
+              <li>Laporan evaluasi penggunaan</li>
+              <li>Surat verifikasi mitra + logbook</li>
+            </ul>
+          </div>
+        </div>
+        <div class="warning-box">
+          <strong>Mitra mundur:</strong> Ganti mitra (dalam 3 semester) atau topik baru.
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 10: Bentuk 6 Buku -->
+    <section class="slide" data-slide="10">
+      <div class="slide-content">
+        <h2>Bentuk 6 — Buku ber-ISBN</h2>
+        <div class="two-col">
+          <div class="col">
+            <h3>Format & Ketentuan</h3>
+            <ul class="slide-list">
+              <li>Maksimal 2 mahasiswa per buku</li>
+              <li>Minimal isi buku 50 halaman</li>
+              <li>ISBN diperoleh sebelum sidang</li>
+              <li>Self-publishing diperbolehkan</li>
+              <li>Pembimbing boleh co-author</li>
+            </ul>
+          </div>
+          <div class="col">
+            <h3>Substansi & Konten</h3>
+            <ul class="slide-list">
+              <li>Berdasarkan kajian ilmiah berbasis <strong>PRISMA</strong></li>
+              <li>Protokol PRISMA harus diseminarkan</li>
+              <li>Topik sesuai bidang Prodi IF</li>
+              <li>Dilampirkan narasi ilmiah singkat</li>
+            </ul>
+          </div>
+        </div>
+        <p class="slide-note">Jenis: referensi, monograf, buku ajar, teknis, populer ilmiah. ISBN gagal 3 smt → topik baru dari awal.</p>
+      </div>
+    </section>
+
+    <!-- SLIDE 11: Persyaratan -->
+    <section class="slide" data-slide="11">
+      <div class="slide-content">
+        <h2>Persyaratan Akademik</h2>
+        <div class="two-col">
+          <div class="col">
+            <h3>TA 1 — Proposal (Smt 7)</h3>
+            <ul class="slide-list">
+              <li>Minimal 100 SKS</li>
+              <li>Lulus semua MK prasyarat TA</li>
+              <li>IPK minimal 2,00</li>
+              <li>Tidak memiliki nilai E</li>
+              <li>Nilai D ≤ 10% total SKS</li>
+              <li>Tidak dalam status skorsing</li>
+              <li>Terdaftar dalam KRS aktif</li>
+            </ul>
+          </div>
+          <div class="col">
+            <h3>TA 2 — Sidang Akhir (Smt 8)</h3>
+            <ul class="slide-list">
+              <li>Lulus TA 1</li>
+              <li>Lulus seluruh MK lain (≥140 SKS)</li>
+              <li>Persetujuan & validasi Dosen Wali</li>
+              <li>Terdaftar dalam KRS aktif</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 12: Penilaian -->
+    <section class="slide" data-slide="12">
+      <div class="slide-content">
+        <h2>Penilaian</h2>
+        <div class="two-col">
+          <div class="col">
+            <h3>TA 1 — Proposal</h3>
+            <div class="grading-bars">
+              <div class="grade-bar"><span>Kualitas proposal</span><span class="grade-pct">40%</span></div>
+              <div class="grade-bar"><span>Presentasi & jawaban</span><span class="grade-pct">30%</span></div>
+              <div class="grade-bar"><span>Proses bimbingan</span><span class="grade-pct">30%</span></div>
+            </div>
+          </div>
+          <div class="col">
+            <h3>TA 2 — Sidang Akhir</h3>
+            <div class="grading-bars">
+              <div class="grade-bar"><span>Kualitas laporan/output</span><span class="grade-pct">35%</span></div>
+              <div class="grade-bar"><span>Presentasi & pertahanan</span><span class="grade-pct">25%</span></div>
+              <div class="grade-bar"><span>Proses bimbingan</span><span class="grade-pct">20%</span></div>
+              <div class="grade-bar"><span>Orisinalitas & kontribusi</span><span class="grade-pct">20%</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="grade-table">
+          <div class="grade-cell grade-a">A<br>75–100</div>
+          <div class="grade-cell grade-ab">AB<br>70–74</div>
+          <div class="grade-cell grade-b">B<br>65–69</div>
+          <div class="grade-cell grade-bc">BC<br>60–64</div>
+          <div class="grade-cell grade-tl">TL<br>&lt;60</div>
+        </div>
+        <p class="slide-note">Nilai minimum kelulusan: <strong>Grade B (65)</strong></p>
+      </div>
+    </section>
+
+    <!-- SLIDE 13: AI Policy -->
+    <section class="slide" data-slide="13">
+      <div class="slide-content">
+        <h2>Kebijakan Penggunaan AI</h2>
+        <div class="two-col">
+          <div class="col">
+            <div class="allowed-box">
+              <h3>✓ Diizinkan</h3>
+              <ul class="slide-list">
+                <li>Perbaikan bahasa & penerjemahan</li>
+                <li>Brainstorming & kerangka tulisan</li>
+                <li>Debugging, refactoring, boilerplate</li>
+                <li>Pencarian referensi (verifikasi)</li>
+                <li>Eksplorasi data awal & visualisasi</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col">
+            <div class="forbidden-box">
+              <h3>✗ Dilarang</h3>
+              <ul class="slide-list">
+                <li>Generate sebagian besar isi TA</li>
+                <li>Fabrikasi data atau referensi fiktif</li>
+                <li>Generate kode utuh tanpa paham</li>
+                <li>Upload naskah TA ke platform AI</li>
+                <li>AI sebagai penulis/kontributor</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="highlight-box" style="margin-top:1.5rem;">
+          <p><strong>WAJIB:</strong> Setiap TA memuat Halaman Pernyataan Penggunaan AI.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 14: Integritas & Sanksi -->
+    <section class="slide" data-slide="14">
+      <div class="slide-content">
+        <h2>Integritas Akademik & Sanksi</h2>
+        <table class="slide-table">
+          <thead>
+            <tr><th>Tingkat</th><th>Pelanggaran</th><th>Sanksi</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><span class="severity sev-ringan">Ringan</span></td><td>Kutipan tanpa atribusi, tidak isi Pernyataan AI</td><td>Teguran lisan/tertulis, revisi wajib</td></tr>
+            <tr><td><span class="severity sev-sedang">Sedang</span></td><td>Pelanggaran berulang, free-rider, AI berlebihan</td><td>Penundaan sidang 1 smt, pembatalan nilai MK TA</td></tr>
+            <tr><td><span class="severity sev-berat">Berat</span></td><td>Plagiarisme penuh, fabrikasi data, jasa TA</td><td>Skorsing min. 3 smt, pemberhentian mahasiswa</td></tr>
+          </tbody>
+        </table>
+        <p class="slide-note">Hak Pembelaan: Mahasiswa berhak membela diri di hadapan Komisi Etik (Pasal 24).</p>
+      </div>
+    </section>
+
+    <!-- SLIDE 15: Batas Waktu -->
+    <section class="slide" data-slide="15">
+      <div class="slide-content">
+        <h2>Batas Waktu & Penanganan</h2>
+        <div class="highlight-box big">
+          <p>Masa berlaku topik TA: <strong>3 semester</strong></p>
+          <p>Berlaku untuk SEMUA bentuk TA (1, 2, 3, 4, 5, 6)</p>
+          <p>TA 1 + TA 2 harus diselesaikan dalam 3 semester aktif</p>
+        </div>
+        <table class="slide-table" style="margin-top:1.5rem;">
+          <thead>
+            <tr><th>Bentuk</th><th>Skenario</th><th>Penanganan</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Artikel Ilmiah</td><td>Ditolak sebelum sempro</td><td>Ganti jurnal target</td></tr>
+            <tr><td>Artikel Ilmiah</td><td>Ditolak setelah sempro</td><td>Submit ulang (dalam 2 bln)</td></tr>
+            <tr><td>Artikel Ilmiah</td><td>Belum LoA hingga 3 smt</td><td>Konversi atau topik baru</td></tr>
+            <tr><td>HKI / Paten</td><td>Proses DJKI lama</td><td>Cukup no. permohonan</td></tr>
+            <tr><td>TTG</td><td>Mitra mundur</td><td>Ganti mitra atau topik baru</td></tr>
+            <tr><td>Buku ISBN</td><td>ISBN tidak terbit 3 smt</td><td>Topik baru atau konversi</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SLIDE 16: Peran & Tanggung Jawab -->
+    <section class="slide" data-slide="16">
+      <div class="slide-content">
+        <h2>Peran & Tanggung Jawab</h2>
+        <div class="roles-grid">
+          <div class="role-card">
+            <h4>Kaprodi</h4>
+            <p>Mengesahkan pedoman, menyetujui perpanjangan, menunjuk dosen independen</p>
+          </div>
+          <div class="role-card">
+            <h4>Tim Koordinasi TA</h4>
+            <p>Menyelenggarakan TA, jadwal, administrasi, menugaskan penguji, mediasi</p>
+          </div>
+          <div class="role-card">
+            <h4>GKMF</h4>
+            <p>Mengawasi penerapan pedoman, laporan berkala, rekomendasi</p>
+          </div>
+          <div class="role-card">
+            <h4>Mahasiswa</h4>
+            <p>Syarat akademik, bimbingan 4x/smt, integritas, code walkthrough</p>
+          </div>
+          <div class="role-card">
+            <h4>Pembimbing</h4>
+            <p>Topik BoK, 4x bimbingan, respons 7 hari, verifikasi plagiarisme</p>
+          </div>
+          <div class="role-card">
+            <h4>Penguji</h4>
+            <p>2 per sidang, penilaian rubrik, hak demo/walkthrough</p>
+          </div>
+          <div class="role-card">
+            <h4>Dosen Wali</h4>
+            <p>Validasi SKS TA 2, Form Pernyataan, arahan akademik</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 17: Hal Penting -->
+    <section class="slide" data-slide="17">
+      <div class="slide-content">
+        <h2>Hal Penting untuk Diingat</h2>
+        <div class="important-grid">
+          <div class="important-item"><strong>H-3</strong> Informasikan jadwal sempro/sidang ke pembimbing & penguji</div>
+          <div class="important-item"><strong>14 hari</strong> Batas revisi pasca-sidang (perpanjangan maks. +7 hari)</div>
+          <div class="important-item"><strong>Dosen Wali</strong> Wajib ditemui sebelum mendaftar sidang akhir</div>
+          <div class="important-item"><strong>Bimbingan</strong> Min. 4x/semester, catat di Form Kendali Bimbingan</div>
+          <div class="important-item"><strong>Similarity</strong> ≤25% wajib dilampirkan saat mendaftar sidang</div>
+          <div class="important-item"><strong>Pernyataan AI</strong> Wajib diisi — baik menggunakan maupun tidak</div>
+          <div class="important-item"><strong>Code Walkthrough</strong> Harus mampu jelaskan seluruh isi TA secara lisan</div>
+          <div class="important-item"><strong>Nota Kesepahaman</strong> Direkomendasikan di awal bimbingan</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 18: Contoh Skenario -->
+    <section class="slide" data-slide="18">
+      <div class="slide-content">
+        <h2>Contoh Skenario Mahasiswa</h2>
+        <div class="scenarios-grid">
+          <div class="scenario-card">
+            <div class="scenario-header">
+              <h4>Ahmad</h4>
+              <span class="scenario-form">Bentuk 1</span>
+            </div>
+            <p>Topik: Klasifikasi penyakit tanaman kopi dengan CNN. Smt 7: proposal + sempro. Smt 8: eksperimen, Bab IV-V, sidang.</p>
+          </div>
+          <div class="scenario-card">
+            <div class="scenario-header">
+              <h4>Budi & Tim</h4>
+              <span class="scenario-form">Bentuk 2</span>
+            </div>
+            <p>3 orang, mitra Dinas Pertanian. Membangun sistem monitoring IoT. Sidang: demo + jawab individu.</p>
+          </div>
+          <div class="scenario-card">
+            <div class="scenario-header">
+              <h4>Citra</h4>
+              <span class="scenario-form">Bentuk 3</span>
+            </div>
+            <p>Submit paper ke jurnal SINTA 3. Sempro smt 7, LoA smt 8, sidang. Belum LoA 3 smt → topik baru.</p>
+          </div>
+          <div class="scenario-card">
+            <div class="scenario-header">
+              <h4>Dian & Eka</h4>
+              <span class="scenario-form">Bentuk 5</span>
+            </div>
+            <p>Platform e-learning sekolah terpencil. Mitra: Dinas Pendidikan Lampung. Sidang: demo + surat verifikasi.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 19: Jadwal -->
+    <section class="slide" data-slide="19">
+      <div class="slide-content">
+        <h2>Pelaksanaan Tugas Akhir — Ganjil 2026/2027</h2>
+        <div class="schedule-timeline">
+          <div class="schedule-item">
+            <div class="schedule-date">1 – 8 Juli 2026</div>
+            <div class="schedule-desc">Periode dosen mengisi tawaran topik</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-date">9 – 23 Juli 2026</div>
+            <div class="schedule-desc">Periode mahasiswa submit pengajuan topik</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-date">24 – 27 Juli 2026</div>
+            <div class="schedule-desc">Periode validasi topik mahasiswa oleh dosen</div>
+          </div>
+          <div class="schedule-item">
+            <div class="schedule-date">28 Juli 2026</div>
+            <div class="schedule-desc">Pengumuman penerimaan topik mahasiswa</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 20: Penutup -->
+    <section class="slide slide-cover" data-slide="20">
+      <div class="slide-content cover-content">
+        <h1>Selamat Mengerjakan<br>Tugas Akhir!</h1>
+        <p class="cover-quote">"Tugas Akhir bukan hanya syarat kelulusan —<br>ia adalah bukti bahwa Anda mampu berkarya."</p>
+        <div class="cover-badge" style="margin-top:2rem;">Program Studi Teknik Informatika · FTI · Institut Teknologi Sumatera</div>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
