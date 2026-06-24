@@ -33,6 +33,28 @@ Website resmi Pedoman Tugas Akhir Program Studi Teknik Informatika, Institut Tek
 node build.js
 ```
 
+### Preview Lokal
+
+Jalankan server statis lokal untuk melihat website di browser:
+
+```bash
+# Menggunakan npx (tanpa install global)
+npx serve .
+
+# Atau gunakan Python
+python3 -m http.server 8000
+```
+
+Browser otomatis buka di `http://localhost:3000` (npx serve) atau `http://localhost:8000` (Python). Jika tidak otomatis, buka manual.
+
+Untuk live-reload (otomatis refresh saat file berubah):
+
+```bash
+npx serve . --listen 3000
+```
+
+Lalu buka `http://localhost:3000` di browser.
+
 ### Edit Konten
 
 | Konten | File | Setelah edit |
