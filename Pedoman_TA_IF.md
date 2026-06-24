@@ -129,6 +129,7 @@ Alya Khairunnisa Rizkita, S.Kom., M.Kom.
   - Lampiran 6. Surat Pembagian Kerja Tim
   - Lampiran 7. Keterangan Selesai Pelaksanaan Tugas Akhir dari Mitra
   - Lampiran 8. Surat Verifikasi Penggunaan Produk Teknologi Tepat Guna dari Mitra
+  - Lampiran 9. Pemetaan Kebijakan Penggunaan AI terhadap Standar Internasional
 
 ---
 
@@ -1777,3 +1778,95 @@ Yang Memverifikasi,
 **(.............................................................)**
 Jabatan: ...................................................
 *(Tanda tangan dan cap/stempel lembaga)*
+
+---
+
+## Lampiran 9. Pemetaan Kebijakan Penggunaan AI terhadap Standar Internasional
+
+Lampiran ini memetakan ketentuan penggunaan kecerdasan buatan (AI) dalam pedoman ini terhadap kebijakan universitas-universitas terkemuka di dunia yang memiliki program Teknik Informatika atau *Computer Science* unggulan. Pemetaan ini bertujuan untuk menunjukkan bahwa pedoman ini telah selaras dengan standar internasional dan, dalam beberapa aspek, telah melampaui praktik terbaik global.
+
+Data komparasi disusun berdasarkan riset terhadap kebijakan universitas berikut:
+
+- **Amerika Serikat**: MIT, Stanford, Carnegie Mellon University (CMU), Harvard, Princeton, University of Colorado Boulder, University of Washington
+- **Eropa**: ETH Zurich (Swiss), University of Oxford (Inggris), TU Munich (Jerman), University of Exeter (Inggris), Universiteit Leiden (Belanda), TU Delft (Belanda), University of Stirling (Skotlandia)
+- **Asia-Pasifik**: National University of Singapore (NUS), University of Melbourne (Australia), UNSW Sydney (Australia), Universiti Putra Malaysia (UPM)
+
+Referensi utama yang digunakan meliputi:
+
+- Perkins, M., Furze, L., Roe, J., & MacVaugh, J. (2024). *The Artificial Intelligence Assessment Scale (AIAS): A Framework for Ethical Integration of Generative AI in Educational Assessment*.
+- Panduan Penggunaan Kecerdasan Buatan (AI) di ITERA Versi 1.0 (Januari 2026).
+- Situs resmi kebijakan akademik masing-masing universitas.
+
+### A. Deklarasi dan Disclosure
+
+| Metrik | Pedoman TA Prodi IF ITERA | Sumber Referensi / Kampus Serupa |
+| :--- | :--- | :--- |
+| **Kewajiban AI Disclosure Statement** | Wajib — "Halaman Pernyataan Penggunaan Kecerdasan Artifisial" (Lampiran 2), dilampirkan dalam setiap TA | **ETH Zurich**: Declaration of Originality dengan checkbox AI/tanpa AI. **Princeton**: Wajib disclose semua penggunaan AI. **CMU**: Wajib appendix dengan prompt + output. **UPM Malaysia**: AI Declaration Form untuk postgraduate thesis. **Univ. Lausanne**: Master Thesis AI Use Disclosure Form (2 minggu sebelum defense) |
+| **Format Deklarasi** | Binary checkbox (TIDAK/MENGGUNAKAN) + tabel rincian: nama AI & versi, tujuan, bagian TA terbantu, langkah verifikasi | **ETH Zurich**: Binary checkbox serupa. **NUS Singapore**: Tabel format (Date, Tool, Purpose, Prompt, Output Used). **CU Boulder AIAS Level 3**: "original draft in appendix with changes tracked". **Exeter**: Checkbox saat submission |
+| **Waktu Pengisian** | Tercantum dalam laporan TA (setelah halaman pernyataan orisinalitas) | **ETH Zurich**: Saat penyerahan thesis. **Princeton**: Saat submission. **UPM**: Saat pendaftaran sidang. **CU Boulder**: Bersamaan dengan assignment submission |
+| **Sanksi Tidak Mengisi AI Declaration** | Pelanggaran ringan — peringatan + revisi wajib (Bab 2.2.1) | **ETH Zurich**: Pelanggaran integritas akademik. **UPM**: Diproses oleh Komisi Etik. **NUS**: Academic misconduct — zero mark. **UNSW**: Investigasi Conduct & Integrity Office |
+| **Sanksi AI Tanpa Deklarasi** | Pelanggaran sedang — penundaan sidang minimal 1 semester (Bab 2.2.2) | **UNSW**: Fail, zero mark, suspension, atau permanent exclusion. **Princeton**: Disciplinary action sesuai Rights, Rules, Responsibilities §2.4. **Stanford**: Honor Code violation. **CMU**: Academic misconduct proceedings |
+
+### B. Batas Penggunaan AI yang Diizinkan dan Dilarang
+
+| Metrik | Pedoman TA Prodi IF ITERA | Sumber Referensi / Kampus Serupa |
+| :--- | :--- | :--- |
+| **AI untuk brainstorming/ideation** | Diizinkan — "brainstorming ide awal dan penyusunan kerangka tulisan" (Bab 4.1.1) | **AIAS Level 2** (Perkins et al. 2024, adopters: CU Boulder, UNSW, Leiden, TU Delft, Stirling): "AI for initial ideation permitted". **MIT Sloan**: Encourages exploration. **Stanford**: Permitted for planning phases |
+| **AI untuk grammar/spell check** | Diizinkan — "meningkatkan kualitas bahasa, tata tulis, dan penerjemahan" (Bab 4.1.1) | **UNSW Level 3**: AI as "coach" for editing. **CU Boulder**: Standard editing tools acceptable. **ETH Zurich**: Permitted with supervisor approval. **UW Graduate School**: Permitted for writing clarity |
+| **AI untuk debugging/code completion** | Diizinkan — "debugging, code completion, refactoring, dan generasi boilerplate kode" (Bab 4.1.1) | **Stanford CS224R**: GitHub Copilot dan ChatGPT diizinkan untuk boilerplate code. **CMU**: AI tools diizinkan untuk tugas coding tertentu. **CU Boulder Level 5**: "Using tools like GitHub CoPilot to develop or debug software" |
+| **AI untuk pencarian referensi** | Diizinkan dengan catatan — "pencarian referensi awal dan ringkasan literatur (dengan verifikasi mandiri)" (Bab 4.1.1) | **AIAS Level 2**: "Using AI to explore and identify relevant references". **Stanford PWR**: AI diizinkan untuk menemukan sumber riset. **ETH Zurich**: Diizinkan tetapi harus diverifikasi secara mandiri. **CU Boulder Level 4**: "Analyze and Compare AI-Generated vs Human Work" |
+| **AI menulis seluruh bab/bagian TA** | Dilarang — "menghasilkan sebagian besar isi TA tanpa kontribusi intelektual signifikan dari mahasiswa" (Bab 4.1.2) | **AIAS Level 1–3**: Tidak ada konten AI-generated dalam submission akhir. **MIT**: "AI-generated writing" diperlakukan sebagai plagiarisme tanpa pengakuan. **Princeton §2.4.7**: AI bukan sumber karena output tidak dihasilkan oleh manusia. **Harvard**: Diframing sebagai komponen kejujuran akademik. **Columbia (Gelman)**: Tidak akan memandu defense yang menggunakan AI untuk menulis |
+| **AI menulis kode program utuh tanpa pemahaman** | Dilarang — "menulis kode program secara utuh tanpa pemahaman mahasiswa atas logika dan fungsinya" (Bab 4.1.2) | **CMU**: Mahasiswa harus mengevaluasi secara kritis kode yang dihasilkan AI. **Stanford**: "harus mendokumentasikan dengan jelas bagian mana yang dibantu AI vs dikembangkan secara mandiri". **ETH Zurich**: Harus menunjukkan pemahaman. **NUS**: Penguji dapat meminta penjelasan kode |
+| **Fabrikasi data/referensi menggunakan AI** | Dilarang — "fabrikasi data, hasil eksperimen, atau referensi/sitasi fiktif" (Bab 4.1.2) | Pelanggaran berat universal di semua universitas. **ETH Zurich**: Plagiarisme. **CMU**: Fabrication = academic misconduct. **Princeton**: "Inappropriate uses" = pelanggaran §2.4. **UPM**: Pelanggaran berat |
+| **AI sebagai penulis/kontributor TA** | Dilarang — "mencantumkan AI sebagai penulis atau kontributor TA" (Bab 4.1.2) | Universal — AI bukan person. **Princeton §2.4.7**: "AI is not a source, since its output is not produced by a person". **MIT**: AI tidak dapat menjadi author. **Seluruh penerbit** (Nature, Science, IEEE): AI tidak boleh dicantumkan sebagai author |
+| **Upload naskah TA ke platform AI** | Dilarang — "mengunggah naskah TA yang belum diterbitkan ke platform AI pihak ketiga" (Bab 4.1.2) | **ETH Zurich**: Kekhawatiran keamanan data — harus mengikuti panduan Kantor Keamanan IT. **Oxford**: Kebijakan penggunaan GenAI dalam riset — harus mempertimbangkan privasi data. **NUS**: Persyaratan perlindungan data. **UW Graduate School**: Harus memastikan penanganan data secara etis |
+
+### C. Framework Level Penggunaan AI
+
+| Metrik | Pedoman TA Prodi IF ITERA | Sumber Referensi / Kampus Serupa |
+| :--- | :--- | :--- |
+| **Framework yang digunakan** | 5 tingkatan (merujuk Panduan AI ITERA V1.0). TA direkomendasikan Tingkat 2–3, Tingkat 4 dilarang, Tingkat 5 hanya untuk TA tentang AI | **AI Assessment Scale (AIAS)** — Perkins et al. 2024: 5 level (No AI hingga Full AI). Diadopsi oleh: **CU Boulder**, **UNSW Sydney**, **Leiden University**, **TU Delft**, **Univ. of Stirling**, **Univ. of Iowa** |
+| **Level untuk thesis/capstone** | Tingkat 2–3 direkomendasikan | **CU Boulder**: Level 1–3 untuk thesis. **UNSW**: Level 1–3 untuk summative assessments. **Leiden**: Level 1–2 untuk thesis. **TU Delft**: Bervariasi per fakultas |
+| **Level 4–5 (AI mengerjakan, manusia mengevaluasi)** | Dilarang kecuali TA tentang pengembangan model AI | **CU Boulder Level 5**: "Assess Understanding of Generative AI Tools" — hanya untuk kursus AI-literacy. **AIAS**: "Focus on AI literacy skills". **UNSW Level 5**: "This assessment would not likely require or benefit from the use of AI" |
+| **Klasifikasi per aspek TA** | Tabel 4.1 — dipisah untuk Penulisan, Coding, Analisis Data, Tinjauan Pustaka | **CU Boulder**: Per-assignment AIAS level. **TU Delft**: Komunikasi per-assessment. **Leiden**: Level berbeda untuk disiplin berbeda (matematika vs kajian sastra). **Jarang ditemukan** — kebanyakan universitas tidak seketail ini |
+
+### D. Deteksi dan Penegakan
+
+| Metrik | Pedoman TA Prodi IF ITERA | Sumber Referensi / Kampus Serupa |
+| :--- | :--- | :--- |
+| **AI detectors sebagai bukti tunggal** | Tidak — "alat deteksi AI tidak dapat dijadikan bukti tunggal pelanggaran" (Bab 2.5 dan 4.3) | **MIT Sloan EdTech**: "AI Detectors Don't Work" — secara eksplisit memperingatkan. **UNSW**: "This is not always conclusive evidence". **CU Boulder**: "Avoid Overreliance on AI Detectors". **University of Technology Sydney**: Detektor menghasilkan false positive |
+| **Peran AI detectors** | "Salah satu indikator awal untuk investigasi lebih lanjut" — harus dikombinasi dengan bukti lain | **UNSW**: "flag for a marker to further review". **CU Boulder**: "alongside many other strategies". **MIT**: Merekomendasikan verifikasi berbasis proses. **Univ. of Colorado**: "Imperfect tools — can flag well-written human work" |
+| **Metode verifikasi utama** | Code walkthrough, wawancara, evaluasi proses, konsistensi kemampuan selama bimbingan (Bab 2.5) | **ETH Zurich**: "Examiners must assess writing style, depth of knowledge, originality". **UPM**: "Examiners MUST ensure student maintained control over research process". **NUS**: Assessment secara tatap muka dan dipandu dosen ketika AI dilarang. **UNSW**: "Conversation about your work" ketika terdeteksi |
+| **Draft/version history sebagai bukti** | Direkomendasikan dalam Nota Kesepahaman + Form Kendali Bimbingan mendokumentasikan proses | **CU Boulder Level 2**: "Document AI Use Through Transparent Submissions — provide transcripts, link to chat interface, or outlines". **UNSW Level 3**: "Keep copies of your drafts as convenor may also request them". **CMU**: Draft original + output AI dalam appendix |
+
+### E. Sidang dan Defense
+
+| Metrik | Pedoman TA Prodi IF ITERA | Sumber Referensi / Kampus Serupa |
+| :--- | :--- | :--- |
+| **Sidang sebagai verifikasi pemahaman** | Sempro + Sidang Akhir — penguji berhak meminta code walkthrough (Bab 5.4) | **Columbia (Gelman)**: "I will only chair defenses where student states they did not use generative AI". **ETH Zurich**: Penguji menilai gaya penulisan + kedalaman pengetahuan. **UPM**: Penguji HARUS memastikan mahasiswa mempertahankan kendali atas proses riset. **NUS**: Penilaian individu untuk setiap anggota kelompok |
+| **Code walkthrough** | Penguji berhak meminta — "Penguji berhak meminta code walkthrough untuk TA yang melibatkan implementasi perangkat lunak" (Bab 5.4.2) | **CMU**: Mahasiswa harus menjelaskan kode yang dibantu AI. **Stanford**: "harus mendokumentasikan dengan jelas bagian mana yang dibantu AI vs dikembangkan secara mandiri". **UNSW**: "You may be asked to have a conversation about your work". **UPM**: "Student must maintain control over research process" |
+| **Individual assessment dalam tim** | "Untuk TA kelompok: setiap anggota wajib menjawab pertanyaan terkait bagiannya secara individu" (Bab 5.4.2) | **UNSW**: Nilai individu dapat berbeda berdasarkan kontribusi. **UPM**: Penilaian individu wajib. **CU Boulder**: "Each team member must be able to explain their part". **NUS Political Science**: Deklarasi individu per mahasiswa |
+| **Durasi sidang** | Total sekitar 85 menit: Presentasi 10+5 menit, Tanya jawab 50 menit, Deliberasi 10 menit, Hasil 5 menit | **CMU**: Bervariasi per program. **ETH Zurich**: Umumnya 60–90 menit. **NUS**: Bervariasi. **CU Boulder**: Tergantung program. **Durasi komprehensif** — 85 menit di atas rata-rata |
+
+### F. Mekanisme Perjanjian dan Sanksi
+
+| Metrik | Pedoman TA Prodi IF ITERA | Sumber Referensi / Kampus Serupa |
+| :--- | :--- | :--- |
+| **Written agreement mahasiswa-pembimbing** | Lampiran 4 — Nota Kesepahaman dengan 7 pasal: topik, jadwal, linimasa, integritas, AI boundaries, dispute resolution | **ETH Zurich**: Harus mengklarifikasi penggunaan AI dengan supervisor sebelum menulis. **Toronto**: "Harus mendapat persetujuan terlebih dahulu dari supervisor(s) dan komite supervisi". **TUM Munich**: "Selalu tanyakan kepada supervisor sebelum menggunakan tool". **Jarang ditemukan** — kebanyakan universitas tidak memiliki MoU formal dengan pasal-pasal |
+| **AI boundaries dalam agreement** | Pasal 5 secara spesifik: AI diizinkan untuk X, DILARANG untuk Y, wajib isi declaration, pembimbing berhak meminta code walkthrough | **ETH Zurich**: "Harus mengklarifikasi dengan supervisor sejauh mana penggunaan GenAI diperbolehkan". **Toronto**: "Penggunaan AI harus mendapat persetujuan terlebih dahulu". **CMU**: Kebijakan per-level kursus. **Lebih detail** dari kebanyakan universitas |
+| **Sanksi terstruktur berjenjang** | 3-tier: Ringan (peringatan, revisi) → Sedang (penundaan sidang 1 semester, pembatalan nilai) → Berat (pemberhentian sementara min. 3 semester, pencabutan gelar) — Bab 2.3 | **UNSW**: Zero mark → fail → suspension → permanent exclusion. **Princeton**: Disciplinary action via Rights, Rules, Responsibilities. **Stanford**: Honor Code proceedings. **ETH Zurich**: Academic integrity procedures. **Pedoman ITERA lebih terstruktur** — formalisasi 3 tahap + Komisi Etik |
+| **Prosedur penanganan pelanggaran** | Tahap 1 (Pembimbing) → Tahap 2 (Koordinator TA, 14 hari kerja) → Tahap 3 (Komisi Etik Mahasiswa, 30 hari) — Bab 2.4 | **UNSW**: Conduct & Integrity Office. **Princeton**: Judicial Committee. **Stanford**: Office of Community Standards. **ETH Zurich**: Academic Integrity Board. **Pedoman ITERA lebih detail** — memiliki timeline eksplisit (14 hari, 30 hari) |
+| **Hak pembelaan mahasiswa** | Pasal 24 Peraturan Rektor No. 10/2025: pembelaan, bukti, saksi, dampingan Dosen Wali | **Princeton**: Judicial hearing. **Stanford**: Student judicial charter. **UNSW**: Right to respond. **ETH Zurich**: Appeal process. **Setara** |
+
+### G. Ringkasan Pemetaan
+
+| Kategori | Status Pemetaan | Catatan |
+| :--- | :--- | :--- |
+| AI Disclosure Statement | Setara/Mengungguli | Formulir formal dengan tabel rincian — lebih detail dari ETH Zurich dan sekelas CMU |
+| Allowed/Prohibited Clarity | Setara | Bab 4.1.1–4.1.2 + Tabel 4.1 sangat jelas — sekelas AIAS framework global |
+| 5-Level AI Framework | Setara | Mengadopsi 5 tingkatan mirip AIAS (Perkins et al. 2024) |
+| Detection Non-Conclusive | Setara | Selaras dengan MIT, UNSW, CU Boulder |
+| Oral Defense Safety Net | Setara | Code walkthrough + individual assessment = sekelas ETH, UPM, UNSW |
+| Formal Agreement (MoU) | Di atas rata-rata | Lampiran 4 dengan 7 pasal + AI boundaries — lebih dari kebanyakan universitas global |
+| Sanksi Terstruktur | Di atas rata-rata | 3-tier sanksi + 3 tahap prosedur dengan timeline — lebih terstruktur dari kebanyakan |
+| Klasifikasi per Aspek AI | Di atas rata-rata | Tabel 4.1 lebih granular dari AIAS yang hanya per-assignment |
