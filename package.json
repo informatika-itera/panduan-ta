@@ -1,11 +1,7 @@
 {
   "name": "panduan-ta",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "description": "Website Pedoman Tugas Akhir IF ITERA",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/informatika-itera/panduan-ta.git"
@@ -17,7 +13,7 @@
   "bugs": {
     "url": "https://github.com/informatika-itera/panduan-ta/issues"
   },
-  "homepage": "https://github.com/informatika-itera/panduan-ta#readme",
+  "homepage": "https://informatika-itera.github.io/panduan-ta/",
   "dependencies": {
     "marked": "^18.0.5"
   }

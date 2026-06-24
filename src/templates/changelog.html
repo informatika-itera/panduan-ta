@@ -1,0 +1,58 @@
+<main class="home">
+  <div class="hero" style="padding-bottom: 20px">
+    <div class="hero-badge">Version History</div>
+    <h1 style="font-size: 36px">Changelog</h1>
+    <p class="hero-sub">Riwayat perubahan penting pada Pedoman TA IF ITERA.</p>
+  </div>
+  <div class="changelog-container" id="changelog-content"></div>
+  <div class="home-footer">
+    <p>
+      Institut Teknologi Sumatera · Fakultas Teknologi Industri · Program Studi
+      Teknik Informatika
+    </p>
+  </div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+  const rawChangelog = {{CHANGELOG_CONTENT}};
+  const clEl = document.getElementById('changelog-content');
+  marked.setOptions({ breaks: true, gfm: true });
+  // Parse markdown and split by h2 (each version)
+  const tmpDiv = document.createElement('div');
+  tmpDiv.innerHTML = marked.parse(rawChangelog);
+  const allH2 = tmpDiv.querySelectorAll('h2');
+  const maxEntries = 8;
+  let count = 0;
+  allH2.forEach(h2 => {
+    if (count >= maxEntries) {
+      // Hide remaining entries
+      let node = h2;
+      while (node) {
+        const next = node.nextElementSibling;
+        node.remove();
+        node = next;
+        if (!node || node.tagName === 'H2') break;
+      }
+      h2.remove();
+    } else {
+      count++;
+    }
+  });
+  clEl.innerHTML = tmpDiv.innerHTML;
+  // Style the changelog
+  clEl.querySelectorAll('h2').forEach(h => {
+    h.style.cssText = 'font-size:22px;font-weight:700;margin:32px 0 12px;padding:12px 20px;background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius-sm);border-left:4px solid var(--accent);';
+  });
+  clEl.querySelectorAll('h3').forEach(h => {
+    h.style.cssText = 'font-size:16px;font-weight:600;margin:20px 0 8px;color:var(--accent);';
+  });
+  clEl.querySelectorAll('ul').forEach(ul => {
+    ul.style.cssText = 'padding-left:20px;margin:8px 0 16px;';
+  });
+  clEl.querySelectorAll('li').forEach(li => {
+    li.style.cssText = 'font-size:14px;line-height:1.7;margin:4px 0;color:var(--text-2);';
+  });
+  clEl.querySelectorAll('strong').forEach(s => {
+    s.style.color = 'var(--text)';
+  });
+</script>

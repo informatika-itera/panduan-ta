@@ -1,0 +1,52 @@
+<div class="layout-pedoman">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h3>Daftar Isi</h3>
+      <button
+        class="sidebar-close"
+        id="sidebar-close"
+        aria-label="Tutup sidebar"
+      >
+        ✕
+      </button>
+    </div>
+    <ul class="toc" id="toc">
+      {{TOC_HTML}}
+    </ul>
+  </aside>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+  <main class="content-pedoman" id="content">
+    <button
+      class="sidebar-toggle"
+      id="sidebar-toggle"
+      aria-label="Buka navigasi"
+    >
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path d="M3 12h18M3 6h18M3 18h18" />
+      </svg>
+      <span>Daftar Isi</span>
+    </button>
+    <div id="md-content"></div>
+  </main>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+  const rawMd = {{MD_CONTENT}};
+  const mdEl = document.getElementById('md-content');
+  // Configure marked
+  marked.setOptions({ breaks: true, gfm: true });
+  // Render
+  mdEl.innerHTML = marked.parse(rawMd);
+  // Add IDs to headings for ToC links
+  mdEl.querySelectorAll('h1, h2, h3, h4').forEach(h => {
+    const id = h.textContent.toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-');
+    h.id = id;
+  });
+</script>
