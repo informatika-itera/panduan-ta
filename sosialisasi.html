@@ -10,7 +10,8 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
-    
+    <link rel="stylesheet" href="vendor/reveal.js/reveal.css">
+<link rel="stylesheet" href="reveal-theme.css">
   </head>
   <body>
     <nav class="topbar">
@@ -76,39 +77,10 @@
       </div>
     </nav>
     
-<div class="slides-container" id="slides-container">
-  <nav class="slides-nav" id="slides-nav">
-    <button class="slide-nav-btn" id="slide-prev" aria-label="Sebelumnya">
-      <svg
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-      >
-        <path d="M15 18l-6-6 6-6" />
-      </svg>
-    </button>
-    <span class="slide-counter" id="slide-counter">1 / 20</span>
-    <button class="slide-nav-btn" id="slide-next" aria-label="Selanjutnya">
-      <svg
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-      >
-        <path d="M9 18l6-6-6-6" />
-      </svg>
-    </button>
-    <div class="slide-dots" id="slide-dots"></div>
-  </nav>
-
-  <div class="slides-wrapper" id="slides-wrapper">
+<div class="reveal">
+  <div class="slides">
     <!-- SLIDE 1: Cover -->
-    <section class="slide slide-cover" data-slide="1">
+    <section class="slide-cover">
       <div class="slide-content cover-content">
         <div class="cover-badge">
           Fakultas Teknologi Industri · Institut Teknologi Sumatera
@@ -120,7 +92,7 @@
     </section>
 
     <!-- SLIDE 2: Agenda -->
-    <section class="slide" data-slide="2">
+    <section>
       <div class="slide-content">
         <h2>Agenda Sosialisasi</h2>
         <div class="agenda-grid">
@@ -156,7 +128,7 @@
     </section>
 
     <!-- SLIDE 3: CPL 10 -->
-    <section class="slide" data-slide="3">
+    <section>
       <div class="slide-content">
         <h2>CPL 10 & Taksonomi Bloom</h2>
         <div class="highlight-box">
@@ -191,7 +163,7 @@
     </section>
 
     <!-- SLIDE 4: Enam Bentuk -->
-    <section class="slide" data-slide="4">
+    <section>
       <div class="slide-content">
         <h2>Enam Bentuk Tugas Akhir</h2>
         <div class="forms-grid">
@@ -230,7 +202,7 @@
     </section>
 
     <!-- SLIDE 5: Alur Bentuk 1 -->
-    <section class="slide" data-slide="5">
+    <section>
       <div class="slide-content">
         <h2>Alur Bentuk 1 — Laporan TA</h2>
         <div class="flow-steps">
@@ -283,7 +255,7 @@
     </section>
 
     <!-- SLIDE 6: Bentuk 2 Capstone -->
-    <section class="slide" data-slide="6">
+    <section>
       <div class="slide-content">
         <h2>Bentuk 2 — Capstone Design</h2>
         <div class="two-col">
@@ -314,7 +286,7 @@
     </section>
 
     <!-- SLIDE 7: Bentuk 3 Artikel -->
-    <section class="slide" data-slide="7">
+    <section>
       <div class="slide-content">
         <h2>Bentuk 3 — Jalur Publikasi Ilmiah</h2>
         <div class="flow-steps compact">
@@ -364,7 +336,7 @@
     </section>
 
     <!-- SLIDE 8: Bentuk 4 HKI -->
-    <section class="slide" data-slide="8">
+    <section>
       <div class="slide-content">
         <h2>Bentuk 4 — Prototipe / HKI / Paten</h2>
         <table class="slide-table">
@@ -413,7 +385,7 @@
     </section>
 
     <!-- SLIDE 9: Bentuk 5 TTG -->
-    <section class="slide" data-slide="9">
+    <section>
       <div class="slide-content">
         <h2>Bentuk 5 — Teknologi Tepat Guna (TTG)</h2>
         <div class="two-col">
@@ -444,7 +416,7 @@
     </section>
 
     <!-- SLIDE 10: Bentuk 6 Buku -->
-    <section class="slide" data-slide="10">
+    <section>
       <div class="slide-content">
         <h2>Bentuk 6 — Buku ber-ISBN</h2>
         <div class="two-col">
@@ -478,7 +450,7 @@
     </section>
 
     <!-- SLIDE 11: Persyaratan -->
-    <section class="slide" data-slide="11">
+    <section>
       <div class="slide-content">
         <h2>Persyaratan Akademik</h2>
         <div class="two-col">
@@ -508,7 +480,7 @@
     </section>
 
     <!-- SLIDE 12: Penilaian -->
-    <section class="slide" data-slide="12">
+    <section>
       <div class="slide-content">
         <h2>Penilaian</h2>
         <div class="two-col">
@@ -562,7 +534,7 @@
     </section>
 
     <!-- SLIDE 13: AI Policy -->
-    <section class="slide" data-slide="13">
+    <section>
       <div class="slide-content">
         <h2>Kebijakan Penggunaan AI</h2>
         <div class="two-col">
@@ -601,7 +573,7 @@
     </section>
 
     <!-- SLIDE 14: Integritas & Sanksi -->
-    <section class="slide" data-slide="14">
+    <section>
       <div class="slide-content">
         <h2>Integritas Akademik & Sanksi</h2>
         <table class="slide-table">
@@ -638,7 +610,7 @@
     </section>
 
     <!-- SLIDE 15: Batas Waktu -->
-    <section class="slide" data-slide="15">
+    <section>
       <div class="slide-content">
         <h2>Batas Waktu & Penanganan</h2>
         <div class="highlight-box big">
@@ -691,7 +663,7 @@
     </section>
 
     <!-- SLIDE 16: Peran & Tanggung Jawab -->
-    <section class="slide" data-slide="16">
+    <section>
       <div class="slide-content">
         <h2>Peran & Tanggung Jawab</h2>
         <div class="roles-grid">
@@ -738,7 +710,7 @@
     </section>
 
     <!-- SLIDE 17: Hal Penting -->
-    <section class="slide" data-slide="17">
+    <section>
       <div class="slide-content">
         <h2>Hal Penting untuk Diingat</h2>
         <div class="important-grid">
@@ -778,7 +750,7 @@
     </section>
 
     <!-- SLIDE 18: Contoh Skenario -->
-    <section class="slide" data-slide="18">
+    <section>
       <div class="slide-content">
         <h2>Contoh Skenario Mahasiswa</h2>
         <div class="scenarios-grid">
@@ -827,7 +799,7 @@
     </section>
 
     <!-- SLIDE 19: Jadwal -->
-    <section class="slide" data-slide="19">
+    <section>
       <div class="slide-content">
         <h2>Pelaksanaan Tugas Akhir — Ganjil 2026/2027</h2>
         <div class="schedule-timeline">
@@ -858,7 +830,7 @@
     </section>
 
     <!-- SLIDE 20: Penutup -->
-    <section class="slide slide-cover" data-slide="20">
+    <section class="slide-cover">
       <div class="slide-content cover-content">
         <h1>Selamat Mengerjakan<br />Tugas Akhir!</h1>
         <p class="cover-quote">
@@ -871,8 +843,91 @@
       </div>
     </section>
   </div>
+
+  <!-- Slide toolbar: fullscreen + TOC -->
+  <div class="reveal-slide-toolbar" id="slide-toolbar">
+    <button
+      id="btn-fullscreen"
+      aria-label="Fullscreen (layar penuh)"
+      title="Layar Penuh"
+    >
+      <svg
+        id="fs-enter"
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path
+          d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"
+        />
+      </svg>
+      <svg
+        id="fs-exit"
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        style="display: none"
+      >
+        <path
+          d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"
+        />
+      </svg>
+    </button>
+    <button
+      id="btn-toc"
+      aria-label="Daftar Isi (slide navigasi)"
+      title="Daftar Isi"
+    >
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <line x1="8" y1="6" x2="21" y2="6" />
+        <line x1="8" y1="12" x2="21" y2="12" />
+        <line x1="8" y1="18" x2="21" y2="18" />
+        <line x1="3" y1="6" x2="3.01" y2="6" />
+        <line x1="3" y1="12" x2="3.01" y2="12" />
+        <line x1="3" y1="18" x2="3.01" y2="18" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- TOC Overlay Panel -->
+  <div id="toc-panel" class="toc-panel" style="display: none">
+    <div class="toc-panel-backdrop"></div>
+    <div class="toc-panel-content">
+      <div class="toc-panel-header">
+        <h3>Daftar Isi</h3>
+        <button id="toc-close" aria-label="Tutup daftar isi">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+      <div class="toc-panel-list" id="toc-list"></div>
+    </div>
+  </div>
 </div>
 
+<script src="vendor/reveal.js/reveal.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

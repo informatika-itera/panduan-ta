@@ -62,97 +62,140 @@
 	});
 })();
 
-// Slides navigation
+// Slides (reveal.js) — triggers only on the /sosialisasi page
 (() => {
-	const wrapper = document.getElementById("slides-wrapper");
-	if (!wrapper) return;
+	if (typeof Reveal === "undefined") return;
 
-	const slides = wrapper.querySelectorAll(".slide");
-	const counter = document.getElementById("slide-counter");
-	const prevBtn = document.getElementById("slide-prev");
-	const nextBtn = document.getElementById("slide-next");
-	const dotsContainer = document.getElementById("slide-dots");
-	let current = 0;
-	const total = slides.length;
-
-	// Create dots
-	const dots = [];
-	slides.forEach((_, i) => {
-		const dot = document.createElement("div");
-		dot.className = "slide-dot" + (i === 0 ? " active" : "");
-		dot.addEventListener("click", () => goTo(i));
-		dotsContainer.appendChild(dot);
-		dots.push(dot);
+	Reveal.initialize({
+		embedded: true, // Fill container, NOT full viewport (topbar stays visible)
+		hash: true, // URL tracks slide index: #/5
+		slideNumber: true, // Show "3 / 20" format
+		transition: "slide", // Animation between slides
+		transitionSpeed: "default",
+		width: "100%", // Use parent container width
+		height: "100%", // Use parent container height
+		margin: 0,
+		center: true,
+		controls: true, // Show navigation arrows
+		controlsTutorial: false,
+		progress: true, // Show progress bar
+		keyboard: true, // Arrow key navigation
+		touch: true, // Touch swipe
+		autoSlide: 0, // Disable auto-advance
+		autoSlideStoppable: false,
+		mouseWheel: false, // Disable scroll-to-slide
+		hideAddressBar: true,
+		previewLinks: false,
+		viewDistance: 3, // Preload 3 slides ahead
 	});
+})();
 
-	function goTo(idx, animate = true) {
-		if (idx < 0 || idx >= total) return;
-		const oldIdx = current;
-		if (idx === oldIdx && animate) return;
+// Slide toolbar: fullscreen + table of contents
+(() => {
+	const btnFs = document.getElementById("btn-fullscreen");
+	const btnToc = document.getElementById("btn-toc");
+	const tocPanel = document.getElementById("toc-panel");
+	const tocList = document.getElementById("toc-list");
+	const tocClose = document.getElementById("toc-close");
+	const backdrop = tocPanel?.querySelector(".toc-panel-backdrop");
 
-		if (animate) {
-			const goingForward = idx > oldIdx;
+	if (!btnFs && !btnToc) return;
 
-			if (goingForward) {
-				// Old slide: exit to the LEFT
-				slides[oldIdx].classList.remove("active");
-				slides[oldIdx].classList.add("prev");
+	// --- Fullscreen toggle ---
+	const fsEnter = document.getElementById("fs-enter");
+	const fsExit = document.getElementById("fs-exit");
 
-				// New slide: enter from the RIGHT (default CSS position)
-				slides[idx].classList.remove("prev");
-				slides[idx].classList.add("active");
+	if (btnFs) {
+		const updateFsIcon = () => {
+			const isFs = !!document.fullscreenElement;
+			if (fsEnter) fsEnter.style.display = isFs ? "none" : "";
+			if (fsExit) fsExit.style.display = isFs ? "" : "none";
+		};
+
+		btnFs.addEventListener("click", () => {
+			if (document.fullscreenElement) {
+				document.exitFullscreen().catch(() => {});
 			} else {
-				// Going backward
-				// Old slide: exit to the RIGHT
-				slides[oldIdx].classList.remove("active", "prev");
-
-				// New slide: position offscreen left first, force reflow, animate center
-				slides[idx].classList.add("prev");
-				void slides[idx].offsetWidth;
-				slides[idx].classList.remove("prev");
-				slides[idx].classList.add("active");
+				document.documentElement.requestFullscreen().catch(() => {});
 			}
-		} else {
-			// No animation (initial render)
-			slides.forEach((s, i) => {
-				s.classList.remove("active", "prev");
-				if (i === idx) s.classList.add("active");
-			});
-		}
-
-		current = idx;
-
-		// Update counter
-		counter.textContent = current + 1 + " / " + total;
-		prevBtn.disabled = current === 0;
-		nextBtn.disabled = current === total - 1;
-
-		// Update dots
-		dots.forEach((d, i) => {
-			d.classList.toggle("active", i === current);
 		});
+
+		document.addEventListener("fullscreenchange", updateFsIcon);
+		updateFsIcon();
 	}
 
-	prevBtn.addEventListener("click", () => goTo(current - 1));
-	nextBtn.addEventListener("click", () => goTo(current + 1));
+	// --- Table of contents ---
+	if (btnToc && tocPanel && tocList) {
+		const slides = document.querySelectorAll(".reveal .slides > section");
 
-	// Keyboard navigation
-	document.addEventListener("keydown", (e) => {
-		if (e.key === "ArrowRight" || e.key === "ArrowDown") goTo(current + 1);
-		if (e.key === "ArrowLeft" || e.key === "ArrowUp") goTo(current - 1);
-	});
+		const tocItems = Array.from(slides).map((section, i) => {
+			const h2 = section.querySelector("h2");
+			let title = h2 ? h2.textContent.trim().replace(/\s+/g, " ") : null;
+			if (!title) {
+				title =
+					i === 0
+						? "Pembukaan"
+						: i === slides.length - 1
+							? "Penutup"
+							: "Slide " + (i + 1);
+			}
+			return { index: i, title };
+		});
 
-	// Touch swipe
-	let touchStartX = 0;
-	wrapper.addEventListener("touchstart", (e) => {
-		touchStartX = e.touches[0].clientX;
-	});
-	wrapper.addEventListener("touchend", (e) => {
-		const diff = touchStartX - e.changedTouches[0].clientX;
-		if (Math.abs(diff) > 50) {
-			diff > 0 ? goTo(current + 1) : goTo(current - 1);
+		const renderToc = () => {
+			const currentIdx =
+				typeof Reveal !== "undefined" ? Reveal.getIndices().h : 0;
+
+			while (tocList.firstChild) tocList.removeChild(tocList.firstChild);
+			tocItems.forEach((item) => {
+				const btn = document.createElement("button");
+				btn.className =
+					"toc-item" + (item.index === currentIdx ? " active" : "");
+				const numSpan = document.createElement("span");
+				numSpan.className = "toc-item-num";
+				numSpan.textContent = String(item.index + 1);
+				const titleSpan = document.createElement("span");
+				titleSpan.textContent = item.title;
+				btn.appendChild(numSpan);
+				btn.appendChild(titleSpan);
+				btn.addEventListener("click", () => {
+					if (typeof Reveal !== "undefined") {
+						Reveal.slide(item.index);
+					}
+					tocPanel.style.display = "none";
+				});
+				tocList.appendChild(btn);
+			});
+		};
+
+		const openToc = () => {
+			renderToc();
+			tocPanel.style.display = "flex";
+		};
+
+		btnToc.addEventListener("click", openToc);
+
+		const closeToc = () => {
+			tocPanel.style.display = "none";
+		};
+
+		tocClose.addEventListener("click", closeToc);
+		if (backdrop) {
+			backdrop.addEventListener("click", closeToc);
 		}
-	});
 
-	goTo(0, false);
+		document.addEventListener("keydown", (e) => {
+			if (e.key === "Escape" && tocPanel.style.display !== "none") {
+				closeToc();
+			}
+		});
+
+		if (typeof Reveal !== "undefined") {
+			Reveal.on("slidechanged", () => {
+				if (tocPanel.style.display !== "none") {
+					renderToc();
+				}
+			});
+		}
+	}
 })();
