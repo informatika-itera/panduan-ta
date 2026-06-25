@@ -13,6 +13,20 @@ const baseTemplate = fs.readFileSync(path.join(TEMPLATES, "base.html"), "utf8");
 const styles = fs.readFileSync(path.join(SRC, "styles.css"), "utf8");
 const script = fs.readFileSync(path.join(SRC, "script.js"), "utf8");
 const slidesContent = fs.readFileSync(path.join(SRC, "slides.html"), "utf8");
+const revealThemeCss = fs.readFileSync(
+	path.join(SRC, "reveal-theme.css"),
+	"utf8",
+);
+
+// Read reveal.js vendor files
+const revealCss = fs.readFileSync(
+	path.join(ROOT, "vendor/reveal.js/reveal.css"),
+	"utf8",
+);
+const revealJs = fs.readFileSync(
+	path.join(ROOT, "vendor/reveal.js/reveal.js"),
+	"utf8",
+);
 
 // --- Extract TOC from markdown ---
 function extractToc(md) {
@@ -94,7 +108,16 @@ const pedomanBody = pedomanTemplate
 const pedomanHtml = assemblePage("Pedoman", pedomanBody);
 
 // === SOSIALISASI PAGE ===
-const sosialisasiHtml = assemblePage("Sosialisasi", slidesContent);
+const sosialisasiExtraHead =
+	'<link rel="stylesheet" href="vendor/reveal.js/reveal.css">\n' +
+	'<link rel="stylesheet" href="reveal-theme.css">';
+const sosialisasiBody =
+	slidesContent + '\n<script src="vendor/reveal.js/reveal.js"></script>';
+const sosialisasiHtml = assemblePage(
+	"Sosialisasi",
+	sosialisasiBody,
+	sosialisasiExtraHead,
+);
 
 // === FORMULIR PAGE ===
 const formulirHtml = assemblePage("Formulir", formulirTemplate);
@@ -127,6 +150,15 @@ fs.writeFileSync(
 fs.writeFileSync(path.join(ROOT, "styles.css"), styles);
 fs.writeFileSync(path.join(ROOT, "script.js"), script);
 
+// Write reveal.js vendor files
+const vendorOutDir = path.join(ROOT, "vendor", "reveal.js");
+fs.mkdirSync(vendorOutDir, { recursive: true });
+fs.writeFileSync(path.join(vendorOutDir, "reveal.css"), revealCss);
+fs.writeFileSync(path.join(vendorOutDir, "reveal.js"), revealJs);
+
+// Write reveal theme to root
+fs.writeFileSync(path.join(ROOT, "reveal-theme.css"), revealThemeCss);
+
 console.log("Build complete! Files generated:");
 console.log("  - index.html");
 console.log("  - pedoman.html");
@@ -135,3 +167,6 @@ console.log("  - formulir.html");
 console.log("  - changelog.html");
 console.log("  - styles.css");
 console.log("  - script.js");
+console.log("  - reveal-theme.css");
+console.log("  - vendor/reveal.js/reveal.css");
+console.log("  - vendor/reveal.js/reveal.js");
