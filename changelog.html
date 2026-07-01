@@ -92,7 +92,7 @@
 </main>
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script>
-  const rawChangelog = "# Changelog\n\nSemua perubahan penting pada Pedoman TA IF ITERA.\n\n## [1.0.0] - 2025-06-24\n\n### Added\n\n- Pedoman TA lengkap (8 Bab + 8 Lampiran) dalam format markdown\n- Website pedoman TA dengan sidebar navigasi dan dark/light mode\n- Halaman sosialisasi (slide presentation) berbasis web\n- Changelog untuk tracking perubahan\n\n### Changed\n\n- Sinkronisasi 34 poin dengan PDF Sosialisasi:\n  - Batas waktu semua bentuk TA: 2 → **3 semester**\n  - Capstone: jumlah anggota tetap **3 orang**\n  - Artikel: standar publikasi **SINTA 1–4** (bukan SINTA 5)\n  - HKI/Paten: jumlah mahasiswa **2–3** (bukan 3–4), wajib demo\n  - TTG: TKT minimum **Level 6** (bukan Level 4)\n  - Kehadiran sempro lain: 5 → **2 kali**\n  - Durasi presentasi sempro: **10 menit**, sidang: **10+5 menit**\n  - Tanya jawab sidang: **50 menit**\n  - Buku: syarat **PRISMA**\n  - Checklist sidang: tambah **Surat Izin Penelitian**\n\n### Fixed\n\n- Formatting markdown dari konversi Word (anchor tags, spacing, tabel)\n- Struktur heading hierarkis (#/##/###/####) untuk semua bab & lampiran\n\n## [0.1.0] - 2025-06-23\n\n### Added\n\n- Inisialisasi repository\n- Source markdown dari konversi Word (`raw/Pedoman_TA_IF_Lengkap.docx.md`)\n- PDF Sosialisasi (`raw/Sosialisasi_Pedoman_TA_IF (1).pptx.pdf`)\n";
+  const rawChangelog = "## [0.0.0] - 2026-07-01\n\n### Info\n- File `content/changelog.md` belum tersedia di workspace saat build dijalankan.";
   const clEl = document.getElementById('changelog-content');
   marked.setOptions({ breaks: true, gfm: true });
   // Parse markdown and split by h2 (each version)

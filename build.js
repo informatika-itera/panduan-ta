@@ -6,9 +6,20 @@ const SRC = path.join(ROOT, "src");
 const CONTENT = path.join(ROOT, "content");
 const TEMPLATES = path.join(SRC, "templates");
 
+function readOptionalContent(filename, fallback = "") {
+	const filePath = path.join(CONTENT, filename);
+	return fs.existsSync(filePath) ? fs.readFileSync(filePath, "utf8") : fallback;
+}
+
 // --- Read source files ---
-const md = fs.readFileSync(path.join(CONTENT, "Pedoman_TA_IF.md"), "utf8");
-const changelogMd = fs.readFileSync(path.join(CONTENT, "changelog.md"), "utf8");
+const md = readOptionalContent(
+	"Pedoman_TA_IF.md",
+	"# Pedoman Belum Tersedia\n\nKonten pedoman utama belum tersedia di workspace saat build dijalankan. Silakan tambahkan file `content/Pedoman_TA_IF.md` untuk memulihkan halaman pedoman lengkap.",
+);
+const changelogMd = readOptionalContent(
+	"changelog.md",
+	"## [0.0.0] - 2026-07-01\n\n### Info\n- File `content/changelog.md` belum tersedia di workspace saat build dijalankan.",
+);
 const baseTemplate = fs.readFileSync(path.join(TEMPLATES, "base.html"), "utf8");
 const styles = fs.readFileSync(path.join(SRC, "styles.css"), "utf8");
 const script = fs.readFileSync(path.join(SRC, "script.js"), "utf8");
