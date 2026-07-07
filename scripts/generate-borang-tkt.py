@@ -300,12 +300,12 @@ def build_pdf(xlsx_path, pdf_path, title, subtitle, is_engineering=False):
     # Row marker
     blank = '<br/><br/><br/>'  # space for signature
 
-    # 2x2 grid: row1 = Pembimbing | Mahasiswa, row2 = Penguji1 | Penguji2
+    # 2x2 grid: kiri atas = Mahasiswa, kanan atas = Pembimbing, kiri bawah = Penguji1, kanan bawah = Penguji2
     sig_data = [
-        [P(f'{blank}________________________<br/>Dosen Pembimbing<br/>NIP.', sig),
-         P(f'{blank}________________________<br/>Mahasiswa<br/>NIM.', sig)],
-        [P(f'{blank}________________________<br/>Dosen Penguji 1<br/>NIP.', sig),
-         P(f'{blank}________________________<br/>Dosen Penguji 2<br/>NIP.', sig)],
+        [P(f'{blank}________________________<br/>Mengajukan,<br/>Mahasiswa<br/>NIM.', sig),
+         P(f'{blank}________________________<br/>Mengetahui,<br/>Dosen Pembimbing<br/>NIP.', sig)],
+        [P(f'{blank}________________________<br/>Memvalidasi,<br/>Dosen Penguji 1<br/>NIP.', sig),
+         P(f'{blank}________________________<br/>Memvalidasi,<br/>Dosen Penguji 2<br/>NIP.', sig)],
     ]
     sig_tbl = Table(sig_data, colWidths=[W/2]*2)
     sig_tbl.setStyle(TableStyle([
