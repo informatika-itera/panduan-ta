@@ -42,6 +42,37 @@
         <a href="changelog.html" class="topbar-link "
           >Changelog</a
         >
+        <div class="topbar-search" id="topbar-search">
+          <svg
+            class="search-icon"
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.35-4.35" />
+          </svg>
+          <input
+            type="text"
+            id="pedoman-search"
+            placeholder="Cari..."
+            aria-label="Cari di pedoman"
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <button
+            class="search-clear"
+            id="search-clear"
+            aria-label="Hapus pencarian"
+            hidden
+          >
+            ✕
+          </button>
+          <div class="search-results" id="search-results" hidden></div>
+        </div>
         <button
           id="theme-toggle"
           class="theme-toggle"
@@ -141,6 +172,36 @@
         <div class="formulir-item-info">
           <span class="formulir-item-title">Template Proposal Pengajuan TA</span>
           <span class="formulir-item-ext">DOCX · Maks. 4 Halaman · Semua Bentuk TA</span>
+        </div>
+      </a>
+
+      <a
+        href="formulir/draft-deklarasi-ai.docx"
+        class="formulir-item"
+        download
+      >
+        <div class="formulir-item-icon">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+            />
+            <polyline points="14 2 14 8 20 8" />
+            <line x1="12" y1="18" x2="12" y2="12" />
+            <polyline points="9 15 12 18 15 15" />
+          </svg>
+        </div>
+        <div class="formulir-item-info">
+          <span class="formulir-item-title"
+            >Form Deklarasi Penggunaan Kecerdasan Artifisial (AI)</span
+          >
+          <span class="formulir-item-ext">DOCX · Wajib untuk Semua TA</span>
         </div>
       </a>
 
@@ -549,6 +610,52 @@
             >Berkas Administrasi TA (Ringkasan)</span
           >
           <span class="formulir-item-ext">TXT</span>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="formulir-section">
+    <h2>Borang Pengukuran TKT</h2>
+    <p style="margin-bottom: 1rem; color: var(--text-secondary, #666);">
+      Untuk TA berbasis TKT (Capstone, TTG, Purwarupa/HKI). Pilih borang sesuai bidang keilmuan saat Seminar Proposal.
+    </p>
+    <div class="formulir-grid">
+      <a
+        href="formulir/Borang%20TKT%20Software.pdf"
+        class="formulir-item"
+        download
+      >
+        <div class="formulir-item-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="12" y1="18" x2="12" y2="12"/>
+            <polyline points="9 15 12 18 15 15"/>
+          </svg>
+        </div>
+        <div class="formulir-item-info">
+          <span class="formulir-item-title">Borang TKT Software</span>
+          <span class="formulir-item-ext">PDF &middot; Untuk TA berbasis Perangkat Lunak</span>
+        </div>
+      </a>
+
+      <a
+        href="formulir/Borang%20TKT%20Umum%20dan%20Engineering.pdf"
+        class="formulir-item"
+        download
+      >
+        <div class="formulir-item-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="12" y1="18" x2="12" y2="12"/>
+            <polyline points="9 15 12 18 15 15"/>
+          </svg>
+        </div>
+        <div class="formulir-item-info">
+          <span class="formulir-item-title">Borang TKT Umum &amp; Engineering</span>
+          <span class="formulir-item-ext">PDF &middot; Untuk TA berbasis Hardware / Sistem Fisik</span>
         </div>
       </a>
     </div>
