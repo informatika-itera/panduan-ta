@@ -295,23 +295,28 @@ def build_pdf(xlsx_path, pdf_path, title, subtitle, is_engineering=False):
     ))
     story.append(Spacer(1, 10*mm))
 
-    sig_style = ParagraphStyle('sig_small', fontName=FN, fontSize=7.5, leading=9)
+    sig_style = ParagraphStyle('sig_small', fontName=FN, fontSize=8, leading=10)
+    sig = sig_style
+    # Row marker
+    blank = '<br/><br/><br/>'  # space for signature
+
+    # 2x2 grid: row1 = Pembimbing | Mahasiswa, row2 = Penguji1 | Penguji2
     sig_data = [
-        [P('Mengetahui,', sig_style), P('', sig_style),
-         P('', sig_style), P('', sig_style)],
-        [P('Dosen Pembimbing', sig_style), P('Penguji 1', sig_style),
-         P('Penguji 2', sig_style), P('Mahasiswa', sig_style)],
-        [P('<br/><br/><br/>________________________<br/>NIP.', sig_style),
-         P('<br/><br/><br/>________________________<br/>NIP.', sig_style),
-         P('<br/><br/><br/>________________________<br/>NIP.', sig_style),
-         P('<br/><br/><br/>________________________<br/>NIM.', sig_style)],
+        [P(f'{blank}________________________<br/>Dosen Pembimbing<br/>NIP.', sig),
+         P(f'{blank}________________________<br/>Mahasiswa<br/>NIM.', sig)],
+        [P(f'{blank}________________________<br/>Dosen Penguji 1<br/>NIP.', sig),
+         P(f'{blank}________________________<br/>Dosen Penguji 2<br/>NIP.', sig)],
     ]
-    sig_tbl = Table(sig_data, colWidths=[W/4]*4)
+    sig_tbl = Table(sig_data, colWidths=[W/2]*2)
     sig_tbl.setStyle(TableStyle([
         ('VALIGN', (0, 0), (-1, -1), 'TOP'),
-        ('TOPPADDING', (0, 0), (-1, -1), 2),
+        ('TOPPADDING', (0, 0), (-1, -1), 3),
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 6),
     ]))
     story.append(sig_tbl)
+    story.append(Spacer(1, 3*mm))
+    story.append(P('<i>* Jika ada dua pembimbing, pembimbing utama saja yang cukup menandatangani.</i>',
+                    ParagraphStyle('note', fontName=FN, fontSize=7.5, leading=9, textColor=colors.HexColor('#666666'))))
     doc.build(story)
     print(f'  -> {os.path.basename(pdf_path)} ({os.path.getsize(pdf_path)} bytes)')
 
