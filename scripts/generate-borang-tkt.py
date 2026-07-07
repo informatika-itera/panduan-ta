@@ -295,18 +295,23 @@ def build_pdf(xlsx_path, pdf_path, title, subtitle, is_engineering=False):
     ))
     story.append(Spacer(1, 10*mm))
 
+    sig_style = ParagraphStyle('sig_small', fontName=FN, fontSize=7.5, leading=9)
     sig_data = [
-        [P('Mengetahui,', st['small']), P('', st['small']),
-         P('', st['small']), P('', st['small'])],
-        [P('Dosen Pembimbing', st['small']), P('Dosen Penguji 1', st['small']),
-         P('Dosen Penguji 2', st['small']), P('Nama Mahasiswa', st['small'])],
-        [P('<br/><br/><br/>________________________<br/>NIP.', st['small']),
-         P('<br/><br/><br/>________________________<br/>NIP.', st['small']),
-         P('<br/><br/><br/>________________________<br/>NIP.', st['small']),
-         P('<br/><br/><br/>________________________<br/>NIM.', st['small'])],
+        [P('Mengetahui,', sig_style), P('', sig_style),
+         P('', sig_style), P('', sig_style)],
+        [P('Dosen Pembimbing', sig_style), P('Penguji 1', sig_style),
+         P('Penguji 2', sig_style), P('Mahasiswa', sig_style)],
+        [P('<br/><br/><br/>________________________<br/>NIP.', sig_style),
+         P('<br/><br/><br/>________________________<br/>NIP.', sig_style),
+         P('<br/><br/><br/>________________________<br/>NIP.', sig_style),
+         P('<br/><br/><br/>________________________<br/>NIM.', sig_style)],
     ]
     sig_tbl = Table(sig_data, colWidths=[W/4]*4)
-
+    sig_tbl.setStyle(TableStyle([
+        ('VALIGN', (0, 0), (-1, -1), 'TOP'),
+        ('TOPPADDING', (0, 0), (-1, -1), 2),
+    ]))
+    story.append(sig_tbl)
     doc.build(story)
     print(f'  -> {os.path.basename(pdf_path)} ({os.path.getsize(pdf_path)} bytes)')
 

@@ -62,6 +62,176 @@
 	});
 })();
 
+// Search bar (pedoman page)
+(() => {
+	const searchInput = document.getElementById("pedoman-search");
+	const clearBtn = document.getElementById("search-clear");
+	const resultsEl = document.getElementById("search-results");
+	const mdContent = document.getElementById("md-content");
+	if (!searchInput || !mdContent || !resultsEl) return;
+
+	const MAX_RESULTS = 3;
+	let debounceTimer;
+	let activeIndex = -1;
+	let searchIndex = [];
+
+	function buildIndex() {
+		searchIndex = [];
+		const headings = mdContent.querySelectorAll("h1, h2, h3, h4");
+		headings.forEach((heading) => {
+			let node = heading.nextElementSibling;
+			let bodyText = "";
+			while (node && !/^H[1-4]$/.test(node.tagName)) {
+				bodyText += " " + node.textContent;
+				node = node.nextElementSibling;
+			}
+			searchIndex.push({
+				id: heading.id,
+				level: heading.tagName.toLowerCase(),
+				title: heading.textContent.trim(),
+				body: bodyText.trim().replace(/\s+/g, " "),
+				element: heading,
+			});
+		});
+	}
+
+	if (mdContent.children.length > 0) {
+		buildIndex();
+	} else {
+		document.addEventListener("md-rendered", buildIndex, { once: true });
+	}
+
+	function escapeRegex(s) {
+		return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+	}
+
+	function escapeHtml(s) {
+		return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+	}
+
+	function highlightQuery(text, query) {
+		const esc = escapeRegex(query);
+		return escapeHtml(text).replace(new RegExp(`(${esc})`, "gi"),
+			'<mark class="search-highlight">$1</mark>');
+	}
+
+	function getPreview(body, query, maxLen) {
+		const esc = escapeRegex(query);
+		const rx = new RegExp(esc, "i");
+		const m = rx.exec(body);
+		if (!m) {
+			const t = body.slice(0, maxLen);
+			return escapeHtml(t) + (body.length > maxLen ? "..." : "");
+		}
+		const half = maxLen / 2;
+		let s = Math.max(0, m.index - half);
+		let e = Math.min(body.length, m.index + m[0].length + half);
+		let preview = "";
+		if (s > 0) preview += "...";
+		preview += body.slice(s, e);
+		if (e < body.length) preview += "...";
+		return highlightQuery(preview, query);
+	}
+
+	function renderResults(results, query) {
+		resultsEl.innerHTML = "";
+		if (results.length === 0) {
+			const msg = document.createElement("div");
+			msg.className = "search-no-results";
+			msg.textContent = `Tidak ditemukan: "${query}"`;
+			resultsEl.appendChild(msg);
+			resultsEl.hidden = false;
+			return;
+		}
+		results.forEach((r, i) => {
+			const item = document.createElement("div");
+			item.className = "search-result-item" + (i === activeIndex ? " active" : "");
+			item.innerHTML = `<div class="search-result-heading"><span class="heading-level">${r.level}</span>${highlightQuery(r.title, query)}</div><div class="search-result-preview">${getPreview(r.body, query, 120)}</div>`;
+			item.addEventListener("click", () => {
+				r.element.scrollIntoView({ behavior: "smooth", block: "start" });
+				closeResults();
+				searchInput.blur();
+			});
+			item.addEventListener("mouseenter", () => {
+				activeIndex = i;
+				updateActive(resultsEl);
+			});
+			resultsEl.appendChild(item);
+		});
+		resultsEl.hidden = false;
+	}
+
+	function updateActive(container) {
+		container.querySelectorAll(".search-result-item").forEach((el, i) => {
+			el.classList.toggle("active", i === activeIndex);
+		});
+	}
+
+	function closeResults() {
+		resultsEl.hidden = true;
+		resultsEl.innerHTML = "";
+		activeIndex = -1;
+	}
+
+	function performSearch(query) {
+		if (!query || !query.trim()) {
+			closeResults();
+			clearBtn.hidden = true;
+			return;
+		}
+		clearBtn.hidden = false;
+		const q = query.trim();
+		const esc = escapeRegex(q);
+		const rx = new RegExp(esc, "i");
+		const matches = searchIndex
+			.filter(item => rx.test(item.title) || rx.test(item.body))
+			.slice(0, MAX_RESULTS);
+		activeIndex = 0;
+		renderResults(matches, q);
+	}
+
+	searchInput.addEventListener("input", () => {
+		clearTimeout(debounceTimer);
+		debounceTimer = setTimeout(() => performSearch(searchInput.value), 200);
+	});
+
+	searchInput.addEventListener("keydown", (e) => {
+		const items = resultsEl.querySelectorAll(".search-result-item");
+		const count = items.length;
+		if (count === 0) return;
+		if (e.key === "ArrowDown") {
+			e.preventDefault();
+			activeIndex = (activeIndex + 1) % count;
+			updateActive(resultsEl);
+			items[activeIndex]?.scrollIntoView({ block: "nearest" });
+		} else if (e.key === "ArrowUp") {
+			e.preventDefault();
+			activeIndex = (activeIndex - 1 + count) % count;
+			updateActive(resultsEl);
+		} else if (e.key === "Enter" && activeIndex >= 0) {
+			e.preventDefault();
+			items[activeIndex]?.click();
+		} else if (e.key === "Escape") {
+			closeResults();
+			searchInput.blur();
+		}
+	});
+
+	clearBtn.addEventListener("click", () => {
+		searchInput.value = "";
+		closeResults();
+		clearBtn.hidden = true;
+		searchInput.focus();
+	});
+
+	document.addEventListener("click", (e) => {
+		if (!resultsEl.hidden &&
+			!e.target.closest("#topbar-search") &&
+			!e.target.closest("#search-results")) {
+			closeResults();
+		}
+	});
+})();
 // Slides (reveal.js) — triggers only on the /sosialisasi page
 (() => {
 	if (typeof Reveal === "undefined") return;

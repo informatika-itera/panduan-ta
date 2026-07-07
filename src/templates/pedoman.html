@@ -49,4 +49,6 @@
     const id = h.textContent.toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-');
     h.id = id;
   });
+  // Dispatch event so search indexer knows content is ready
+  document.dispatchEvent(new CustomEvent('md-rendered'));
 </script>
