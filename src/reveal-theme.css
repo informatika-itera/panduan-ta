@@ -192,6 +192,16 @@
 	border-color: var(--accent);
 	transform: translateY(-2px);
 }
+.reveal .form-card-primary {
+	border: 2px solid var(--accent);
+	background: var(--bg-3, var(--bg-2));
+}
+.reveal .form-card-primary .form-num {
+	background: var(--accent-dark, #064e3b);
+}
+.reveal .form-card-primary h3 {
+	color: var(--accent);
+}
 .reveal .form-num {
 	display: inline-flex;
 	align-items: center;
@@ -566,10 +576,6 @@
 .reveal .grade-b {
 	background: var(--accent-light);
 	color: var(--accent);
-}
-.reveal .grade-bc {
-	background: var(--yellow-bg);
-	color: var(--yellow);
 }
 .reveal .grade-tl {
 	background: var(--red-bg);
