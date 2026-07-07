@@ -137,19 +137,21 @@ def build_pdf(xlsx_path, pdf_path, title, subtitle, is_engineering=False):
     story.append(profile_tbl)
     story.append(Spacer(1, 10*mm))
 
-    story.append(P('PETUNJUK PENILAIAN', st['section']))
+    story.append(P('CARA MENGGUNAKAN BORANG', st['section']))
+    cara = [
+        '1. Isi identitas mahasiswa, dosen pembimbing, dan teknologi/proyek di halaman ini.',
+        '2. Mulai dari TKT 1, centang setiap indikator yang terpenuhi. Isi kolom Pengukuran dengan persentase pemenuhan (0-100%).',
+        '3. Hitung nilai rata-rata untuk setiap level TKT dan tulis di kolom Indikator baris Nilai Rata-rata.',
+    ]
     if is_engineering:
-        rule = '4. Bidang Umum/Engineering: jika rata-rata >= 80%, lanjutkan ke level berikutnya. Jika < 80%, BERHENTI.'
+        cara.append('4. Jika rata-rata >= 80%, lanjutkan ke level TKT berikutnya. Jika < 80%, pengukuran BERHENTI.')
     else:
-        rule = '4. Bidang Software: BERHENTI DI SINI pada level pertama yang tidak terpenuhi (> 80% threshold).'
-    for inst in [
-        '1. Untuk setiap level TKT, berikan nilai pada kolom "Pengukuran" untuk setiap indikator.',
-        '2. Nilai Pengukuran: 0 = tidak terpenuhi, 0.2-0.8 = terpenuhi sebagian, 1 = terpenuhi sepenuhnya.',
-        '3. Hitung nilai rata-rata untuk setiap level TKT.',
-        rule,
+        cara.append('4. Pengukuran BERHENTI pada level pertama yang rata-ratanya < 80%.')
+    cara += [
         '5. TKT yang dicapai = level TKT tertinggi yang rata-ratanya >= 80%.',
-        '6. Contoh: Rata-rata TKT 5 = 0.85, TKT 6 = 0.75 => TKT dicapai = 5.',
-    ]:
+        '6. Di halaman terakhir, isi ringkasan hasil dan minta tanda tangan pembimbing serta penguji (saat sidang akhir).',
+    ]
+    for inst in cara:
         story.append(P(inst, st['note']))
         story.append(Spacer(1, 1*mm))
 
@@ -167,21 +169,19 @@ def build_pdf(xlsx_path, pdf_path, title, subtitle, is_engineering=False):
 
         tbl_data = [[
             P(f'TKT {lvl}', st['hdr']), P('No', st['hdr_c']),
-            P('Indikator', st['hdr']), P('Pengukuran<br/>(0-1)', st['hdr_c']),
-            P('Keterangan', st['hdr']),
+            P('Indikator', st['hdr']), P('Pengukuran<br/>0-100%', st['hdr_c']),
         ]]
         for ind in inds:
             tbl_data.append([
                 '', P(str(ind['id']), st['cell_c']),
-                P(ind['text'], st['cell']), P('[ ]', st['cell_c']),
-                P(ind['keterangan'], st['cell']),
+                P(ind['text'], st['cell']), P('________', st['cell_c']),
             ])
         tbl_data.append([
-            '', P('Nilai Rata-rata', st['cell_c']),
-            '', P('________', st['cell_c']), '',
+            '', '',
+            P('<b>Nilai Rata-rata:</b> ________', st['cell']), '',
         ])
 
-        c_w = [14*mm, 8*mm, W - 53*mm, 18*mm, 13*mm]
+        c_w = [14*mm, 8*mm, W - 40*mm, 18*mm]
         tbl = Table(tbl_data, colWidths=c_w, repeatRows=1)
 
         ts = [
@@ -189,7 +189,7 @@ def build_pdf(xlsx_path, pdf_path, title, subtitle, is_engineering=False):
             ('TEXTCOLOR',    (0, 0), (-1, 0), HEADER_FG),
             ('ALIGN',        (0, 0), (0, -1), 'LEFT'),
             ('ALIGN',        (1, 0), (1, -1), 'CENTER'),
-            ('ALIGN',        (3, 0), (3, -1), 'CENTER'),
+            ('ALIGN',        (3, 0), (3, -1), 'RIGHT'),
             ('VALIGN',       (0, 0), (-1, -1), 'MIDDLE'),
             ('GRID',         (0, 0), (-1, -1), 0.4, BORDER_CLR),
             ('TOPPADDING',   (0, 0), (-1, -1), 2),
@@ -201,6 +201,7 @@ def build_pdf(xlsx_path, pdf_path, title, subtitle, is_engineering=False):
             ('FONTNAME',     (0, 0), (0, 0), FB),
             ('BACKGROUND',   (0, -1), (-1, -1), LIGHT_GRAY),
             ('FONTNAME',     (0, -1), (-1, -1), FB),
+            ('SPAN',         (0, -1), (2, -1)),  # Merge No+Indikator for avg row
         ]
         for i in range(2, len(tbl_data), 2):
             ts.append(('BACKGROUND', (1, i), (-1, i), ALT_ROW_BG))
@@ -295,18 +296,16 @@ def build_pdf(xlsx_path, pdf_path, title, subtitle, is_engineering=False):
     story.append(Spacer(1, 10*mm))
 
     sig_data = [
-        [P('Dibuat oleh:', st['small']), P('Diperiksa oleh:', st['small']),
-         P('Diketahui oleh:', st['small'])],
-        [P('<br/><br/><br/>________________________<br/>Nama / NIM', st['small']),
-         P('<br/><br/><br/>________________________<br/>Dosen Pembimbing', st['small']),
-         P('<br/><br/><br/>________________________<br/>Koordinator TA', st['small'])],
+        [P('Mengetahui,', st['small']), P('', st['small']),
+         P('', st['small']), P('', st['small'])],
+        [P('Dosen Pembimbing', st['small']), P('Dosen Penguji 1', st['small']),
+         P('Dosen Penguji 2', st['small']), P('Nama Mahasiswa', st['small'])],
+        [P('<br/><br/><br/>________________________<br/>NIP.', st['small']),
+         P('<br/><br/><br/>________________________<br/>NIP.', st['small']),
+         P('<br/><br/><br/>________________________<br/>NIP.', st['small']),
+         P('<br/><br/><br/>________________________<br/>NIM.', st['small'])],
     ]
-    sig_tbl = Table(sig_data, colWidths=[W/3]*3)
-    sig_tbl.setStyle(TableStyle([
-        ('VALIGN', (0, 0), (-1, -1), 'TOP'),
-        ('TOPPADDING', (0, 0), (-1, -1), 2),
-    ]))
-    story.append(sig_tbl)
+    sig_tbl = Table(sig_data, colWidths=[W/4]*4)
 
     doc.build(story)
     print(f'  -> {os.path.basename(pdf_path)} ({os.path.getsize(pdf_path)} bytes)')
