@@ -70,7 +70,7 @@
 	const mdContent = document.getElementById("md-content");
 	if (!searchInput || !mdContent || !resultsEl) return;
 
-	const MAX_RESULTS = 3;
+	const MAX_RESULTS = 10;
 	let debounceTimer;
 	let activeIndex = -1;
 	let searchIndex = [];
@@ -181,13 +181,32 @@
 		}
 		clearBtn.hidden = false;
 		const q = query.trim();
+		if (q.length < 2) {
+			closeResults();
+			clearBtn.hidden = true;
+			return;
+		}
 		const esc = escapeRegex(q);
 		const rx = new RegExp(esc, "i");
-		const matches = searchIndex
-			.filter(item => rx.test(item.title) || rx.test(item.body))
-			.slice(0, MAX_RESULTS);
+		const scored = searchIndex
+			.map(item => {
+				let score = 0;
+				if (rx.test(item.title)) score += 2;
+				if (rx.test(item.body)) score += 1;
+				return { item, score };
+			})
+			.filter(s => s.score > 0)
+			.sort((a, b) => b.score - a.score);
+		const total = scored.length;
+		const shown = scored.slice(0, MAX_RESULTS).map(s => s.item);
 		activeIndex = 0;
-		renderResults(matches, q);
+		renderResults(shown, q);
+		if (total > MAX_RESULTS) {
+			const more = document.createElement("div");
+			more.className = "search-more";
+			more.textContent = `+${total - MAX_RESULTS} hasil lainnya`;
+			resultsEl.appendChild(more);
+		}
 	}
 
 	searchInput.addEventListener("input", () => {

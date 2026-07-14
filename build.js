@@ -66,7 +66,7 @@ const tocHtml = toc
 	.join("\n");
 
 // --- Assemble page from base template ---
-function assemblePage(title, bodyContent, extraHead = "") {
+function assemblePage(title, bodyContent, extraHead = "", showSearch = false) {
 	const activeTitle = title;
 	return baseTemplate
 		.replace(/\{\{TITLE\}\}/g, title)
@@ -88,6 +88,7 @@ function assemblePage(title, bodyContent, extraHead = "") {
 			/\{\{ACTIVE_CHANGELOG\}\}/g,
 			activeTitle === "Changelog" ? "active" : "",
 		)
+		.replace(/\{\{SEARCH_DISPLAY\}\}/g, showSearch ? "" : 'style="display:none"')
 		.replace(/\{\{BODY\}\}/g, "\n" + bodyContent);
 }
 
@@ -116,7 +117,7 @@ const indexHtml = assemblePage("Beranda", indexTemplate);
 const pedomanBody = pedomanTemplate
 	.replace(/\{\{TOC_HTML\}\}/g, tocHtml)
 	.replace(/\{\{MD_CONTENT\}\}/g, JSON.stringify(md));
-const pedomanHtml = assemblePage("Pedoman", pedomanBody);
+const pedomanHtml = assemblePage("Pedoman", pedomanBody, "", true);
 
 // === SOSIALISASI PAGE ===
 const sosialisasiExtraHead =
