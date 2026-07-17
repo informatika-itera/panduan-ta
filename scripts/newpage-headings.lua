@@ -35,12 +35,7 @@ function Header(el)
     if text == 'Daftar Isi' then
       return {}
     end
-    if text == 'Lembar Pengesahan' then
-      return { pandoc.RawBlock('tex', '\\newpage'), el }
-    end
-    if text:match("^%d") then
-      return { pandoc.RawBlock('tex', '\\newpage'), el }
-    end
+    return { pandoc.RawBlock('tex', '\\newpage'), el }
   end
   return el
 end
