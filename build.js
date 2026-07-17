@@ -39,6 +39,19 @@ const revealJs = fs.readFileSync(
 	"utf8",
 );
 
+// --- Strip PDF-only LaTeX blocks for website rendering ---
+function stripPdfOnlyBlocks(md) {
+	// Remove \begin{titlepage}...\end{titlepage}, \tableofcontents,
+	// and ## Lembar Pengesahan section (all PDF-only content)
+	const stripped = md.replace(
+		/\\begin\{titlepage\}[\s\S]*?\\end\{titlepage\}\s*\\newpage\s*\\tableofcontents\s*\\newpage\s*## Lembar Pengesahan[\s\S]*?\n---\n+(?=## Kata Pengantar)/,
+		""
+	);
+	// Fallback: if regex didn't match, return original
+	return stripped !== md ? stripped : md;
+}
+
+
 // --- Extract TOC from markdown ---
 function extractToc(md) {
 	const lines = md.split("\n");
@@ -58,7 +71,9 @@ function extractToc(md) {
 	return toc;
 }
 
-const toc = extractToc(md);
+const mdStripped = stripPdfOnlyBlocks(md);
+
+const toc = extractToc(mdStripped);
 const tocHtml = toc
 	.map((item) => {
 		return `<li class="toc-level-${item.level}"><a href="#${item.id}" data-level="${item.level}">${item.text}</a></li>`;
@@ -116,7 +131,7 @@ const indexHtml = assemblePage("Beranda", indexTemplate);
 // === PEDOMAN PAGE ===
 const pedomanBody = pedomanTemplate
 	.replace(/\{\{TOC_HTML\}\}/g, tocHtml)
-	.replace(/\{\{MD_CONTENT\}\}/g, JSON.stringify(md));
+	.replace(/\{\{MD_CONTENT\}\}/g, JSON.stringify(mdStripped));
 const pedomanHtml = assemblePage("Pedoman", pedomanBody, "", true);
 
 // === SOSIALISASI PAGE ===
