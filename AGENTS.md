@@ -37,6 +37,7 @@ Website Pedoman Tugas Akhir Program Studi Teknik Informatika ITERA. Mengonversi 
 │   ├── draft-deklarasi-ai.*        # Draft documents
 │   └── raw/                        # Original documents (docx, pdf)
 ├── formulir/                       # Downloadable forms (tracked)
+│   ├── template-ta/                # Template laporan (.docx) & slide (.pptx) Bentuk 1–6
 │   ├── *.docx                      # Admin forms (Kartu Kendali, Surat, dll)
 │   └── draft-deklarasi-ai.*        # Draft deklarasi AI
 ├── build.js                        # Build script (~200 lines)
